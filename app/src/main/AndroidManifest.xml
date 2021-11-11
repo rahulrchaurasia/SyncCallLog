@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.utility.finmartcontact">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+
+
+    <application
+            android:name=".SyncContactApplication"
+            android:allowBackup="true"
+            android:icon="@mipmap/contact_launcher"
+            android:label="@string/app_name"
+            android:usesCleartextTraffic="true"
+            android:roundIcon="@mipmap/contact_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+
+        <provider
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="com.utility.finmartcontact.fileprovider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths" />
+        </provider>
+        <activity
+                android:name="com.utility.finmartcontact.home.HomeActivity"
+                android:label="@string/title_activity_home"
+                android:parentActivityName=".BaseActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.utility.finmartcontact.BaseActivity"/>
+        </activity>
+
+        <activity
+                android:name=".login.LoginActivity"
+                android:screenOrientation="portrait"
+
+                android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

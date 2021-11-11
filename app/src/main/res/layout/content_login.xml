@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/login_bg"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_login"
+        tools:context=".login.LoginActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+        <ImageView
+                android:layout_width="300dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/finmart_logo_splash" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="SYNC CONTACT"
+                android:textAppearance="@style/TextStyle.Title" />
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:hint="Email/User Id"
+                android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/TextLabel">
+
+            <EditText
+                    android:id="@+id/etEmail"
+                    style="@style/Style.edittext"
+                    android:drawableRight="@drawable/vector_email_white"
+                    android:inputType="textEmailAddress"
+                    android:text="1"
+                    android:textColor="@color/white" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+                android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                app:passwordToggleTint="@color/white"
+                app:passwordToggleEnabled="true">
+
+            <EditText
+                    android:id="@+id/etPassword"
+                    style="@style/Style.edittext"
+                    android:inputType="textPassword"
+                    android:text="1"
+                    android:textColor="@color/white" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+                android:id="@+id/btnSignIn"
+                style="@style/ButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:background="@color/button_color"
+                android:minHeight="42dp"
+                android:text="SIGN IN" />
+
+
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:background="@null" />
+
+
+    </LinearLayout>
+</ScrollView>

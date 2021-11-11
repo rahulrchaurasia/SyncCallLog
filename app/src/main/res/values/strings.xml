@@ -1,0 +1,13 @@
+<resources>
+<!--    <string name="app_name">SyncContact</string>-->
+    <string name="app_name">Call Log</string>
+    <string name="txtSyncContacts"><b><big>Sync Contacts:</big></b></string>
+    <string name="txtSyncContacts1"><b><big> Call Details:</big></b></string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_home">Home</string>
+
+    <string name="file_provider_authority" translatable="false">com.utility.finmartcontact.fileprovider</string>
+</resources>
