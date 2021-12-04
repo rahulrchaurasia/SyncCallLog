@@ -7,5 +7,7 @@ import com.utility.finmartcontact.core.model.ContactlistEntity
  */
 data class ContactLeadRequestEntity (
     var fbaid: String,
-    var contactlist: List<ContactlistEntity>? = null
+    var ssid : String,
+    var contactlist: List<ContactlistEntity>? = null,
+    var raw_data: String
 )

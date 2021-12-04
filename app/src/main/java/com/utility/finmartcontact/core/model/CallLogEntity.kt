@@ -8,7 +8,8 @@ data class CallLogEntity (
     var name: String,
     var callType: String,
     var callDuration: String,
-    var callDate: String
+    var callDate: String,
+    var id: Int
 
 
 )

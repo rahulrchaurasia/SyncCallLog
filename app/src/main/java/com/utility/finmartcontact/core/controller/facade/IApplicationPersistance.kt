@@ -14,7 +14,7 @@ interface IApplicationPersistance {
 
     fun getUser(): LoginResponseEntity?
 
-
-
     fun getFBAID(): Int
+
+    fun getSSID(): String
 }

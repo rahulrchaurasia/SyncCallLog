@@ -1,8 +1,7 @@
 <resources>
 <!--    <string name="app_name">SyncContact</string>-->
-    <string name="app_name">Call Log</string>
+    <string name="app_name">SyncContact</string>
     <string name="txtSyncContacts"><b><big>Sync Contacts:</big></b></string>
-    <string name="txtSyncContacts1"><b><big> Call Details:</big></b></string>
 
 
     <string name="action_settings">Settings</string>

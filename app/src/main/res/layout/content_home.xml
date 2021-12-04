@@ -36,7 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="@string/txtSyncContacts1" />
+                        android:text="@string/txtSyncContacts" />
 
                 <Button
                         android:id="@+id/btnSync"
@@ -46,7 +46,7 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
                         android:drawableLeft="@drawable/ic_action_download"
-                        android:text="Call Details" />
+                        android:text="Sync Contact" />
 
 <!--                android:text="Sync Contact"-->
 
@@ -56,7 +56,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone">
+                        android:visibility="visible">
 
                     <View
                             android:layout_width="match_parent"
@@ -66,19 +66,51 @@
 
                     <ProgressBar
                             android:id="@+id/progressBar"
-                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_marginTop="@dimen/fab_margin"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/custom_progress_bg"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            android:maxHeight="15dip"
-                            android:minHeight="15dip"
-                            android:visibility="gone" />
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+
+
+                            android:visibility="visible" />
+
+
+                    <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp">
+
+                        <TextView
+                                android:id="@+id/txtPercent"
+                                android:layout_alignParentLeft="true"
+                                style="@style/TextViewStyle.Medium"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                               />
+
+                        <TextView
+
+                                style="@style/TextViewStyle.Medium"
+                                android:layout_alignParentRight="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="100%"
+                                android:textColor="@color/black" />
+
+                    </RelativeLayout>
+
 
                     <LinearLayout
                             android:id="@+id/lyTotal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="16dp"
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:visibility="visible">
@@ -124,6 +156,19 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginBottom="4dp"
                         android:background="@color/gray_divider_color" />
+
+
+                <ProgressBar
+                        android:id="@+id/progress_circular"
+                        android:layout_marginTop="@dimen/fab_margin"
+                        style="?android:attr/progressBarStyleLarge"
+                        android:progressDrawable="@drawable/custom_progress_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:visibility="gone" />
+
 
             </LinearLayout>
 
@@ -183,6 +228,7 @@
         <android.support.v7.widget.RecyclerView
                 android:background="@color/white"
                 android:id="@+id/rvCallList"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

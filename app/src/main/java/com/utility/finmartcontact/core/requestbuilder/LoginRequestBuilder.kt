@@ -1,9 +1,11 @@
 package com.utility.finmartcontact.core.requestbuilder
 
 import com.utility.finmartcontact.RetroRequestBuilder
+import com.utility.finmartcontact.core.requestentity.CallLogRequestEntity
 import com.utility.finmartcontact.core.requestentity.ContactLeadRequestEntity
 import com.utility.finmartcontact.core.requestentity.LoginRequestEntity
 import com.utility.finmartcontact.core.response.ContactLeadResponse
+import com.utility.finmartcontact.core.response.ContactLogResponse
 import com.utility.finmartcontact.core.response.LoginResponse
 import com.utility.finmartcontact.core.response.LoginResponseEntity
 import retrofit2.Call
@@ -32,6 +34,9 @@ open class LoginRequestBuilder : RetroRequestBuilder() {
 
         @POST()
         fun saveContactLead(@Url url: String, @Body body : ContactLeadRequestEntity): Call<ContactLeadResponse>
+
+        @POST()
+        fun saveCallLog(@Url url: String, @Body body : CallLogRequestEntity): Call<ContactLogResponse>
 
     }
 }
