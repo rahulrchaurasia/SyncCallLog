@@ -27,6 +27,7 @@ import com.github.tamir7.contacts.Contacts
 import com.google.gson.Gson
 import com.utility.finmartcontact.APIResponse
 import com.utility.finmartcontact.BaseActivity
+import com.utility.finmartcontact.CallLog.CallLogAdapter
 import com.utility.finmartcontact.IResponseSubcriber
 import com.utility.finmartcontact.R
 import com.utility.finmartcontact.core.controller.login.LoginController
@@ -113,6 +114,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
     }
 
 
+    //region Event
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btnSync -> {
@@ -125,17 +127,10 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
                     }
                 } else {
 
-                   // showMessage(btnSync, "Hi", "", null)
 
                     // API For Contact
 
-                    currentProgress =0
-                    progressBar!!.setProgress(currentProgress)
-                    lySync.visibility = View.VISIBLE
-                    progress_circular!!.visibility = View.VISIBLE
-                    btnSync.background?.alpha = 80
-                    btnSync.isEnabled = false
-
+                    initData()
 
                     syncContactNumber()
 
@@ -201,6 +196,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
     }
 
+    //endregion
 
 
     //region AsyncTask Handling
@@ -303,7 +299,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
             callLogList!!.clear()
 
-            // rvCallList.adapter = CallLogAdapter(callLogList!!, this@HomeActivity)
+           //  rvCallList.adapter = CallLogAdapter(callLogList!!, this@HomeActivity)    // temp hide recyclerView
 
         }
 
@@ -322,6 +318,8 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
             lySync.visibility = View.VISIBLE
 
 
+            // Todo :  Donot show Call Log Count hence below commented
+
            // txtCount.setText("" + callLogList?.size ?: "0")
 
           //  Log.i(TAGCALL, Gson().toJson(callLogList)).toString()
@@ -339,11 +337,13 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
             //dismissDialog()
 
+            // temp hide recyclerView
+
 //            rvCallList.adapter = null
 //            val adapter = CallLogAdapter(callLogList!!, this@HomeActivity)
 //            rvCallList.adapter = adapter
 
-            sendCallLogToServer()
+             sendCallLogToServer()
 
 
         }
@@ -354,6 +354,19 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
     //endregion
 
     //region method callLog and contact Details
+
+    fun initData(){
+
+        currentProgress =0
+        maxProgress = 0
+        progressBar!!.setProgress(currentProgress)
+        lySync.visibility = View.VISIBLE
+        progress_circular!!.visibility = View.VISIBLE
+        btnSync.background?.alpha = 80
+        btnSync.isEnabled = false
+        txtPercent.text = "0%"
+
+    }
 
     private fun syncContactNumber() {
 
@@ -442,6 +455,12 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
                 CallLog.Calls.OUTGOING_TYPE -> dir = "OUTGOING"
                 CallLog.Calls.INCOMING_TYPE -> dir = "INCOMING"
                 CallLog.Calls.MISSED_TYPE -> dir = "MISSED"
+                CallLog.Calls.REJECTED_TYPE -> dir = "REJECTED"
+                4 -> dir = "NEW"
+                6 -> dir = "BLOCK"
+                7 -> dir = "NEW 7"
+                8 -> dir = "NEW FEATURES_WIFI"
+
             }
 
             // var timeDiff : Long =  (callDayTime2) - (currentDateMinus)
@@ -452,8 +471,14 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
                // Log.i(TAGCALL, "ID added to Call Log" + count)
 
-                if (pName.isNotEmpty()) {
 
+               // if (pName.isNotEmpty()) { }
+               if ((callDuration.toInt()) > 0 && ( dircode ==  1  || dircode ==  2 ) ) {
+
+                   if (pName.isEmpty()) {
+
+                       pName = "NA"
+                   }
                     callLogList?.add(
                         CallLogEntity(
                             phNumber,
@@ -466,6 +491,8 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
                     )
 
                 }
+
+
 
             }
 

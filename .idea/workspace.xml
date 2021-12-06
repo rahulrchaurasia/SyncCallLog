@@ -15,7 +15,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="097dcf6e-d3db-4fb0-b299-b0a8780bcec1" name="Default Changelist" comment="formal commit">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/requestentity/CallLogRequestEntity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -26,30 +25,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/controller/facade/ApplicationPersistance.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/controller/facade/ApplicationPersistance.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/controller/facade/IApplicationPersistance.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/controller/facade/IApplicationPersistance.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/controller/login/ILogin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/controller/login/ILogin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/controller/login/LoginController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/controller/login/LoginController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/model/CallLogEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/model/CallLogEntity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/requestbuilder/LoginRequestBuilder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/requestbuilder/LoginRequestBuilder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/requestentity/ContactLeadRequestEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/requestentity/ContactLeadRequestEntity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/requestentity/LoginRequestEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/requestentity/LoginRequestEntity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/response/LoginResponseEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/core/response/LoginResponseEntity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/home/HomeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/home/HomeActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/login/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/login/LoginActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[c55478d0]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[5aba82b4]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -81,7 +66,7 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DEBUGGABLE_DEVICE" value="xiaomi-poco_x2-5aba82b4" />
+    <property name="DEBUGGABLE_DEVICE" value="xiaomi-redmi_k20_pro-c55478d0" />
     <property name="DEBUGGABLE_PROCESS" value="com.utility.finmartcontact" />
     <property name="DEBUGGER_ID" value="Auto" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus6Pie" />
@@ -237,30 +222,30 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="308" y="221" key="AndroidCreateResourceFileDialog/0.25.1440.875@0.25.1440.875" timestamp="1638447378785" />
-    <state x="489" y="213" key="AndroidProcessChooserDialog" timestamp="1638616975515">
+    <state x="489" y="213" key="AndroidProcessChooserDialog" timestamp="1638767727009">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="489" y="213" key="AndroidProcessChooserDialog/0.25.1440.875@0.25.1440.875" timestamp="1638616975515" />
+    <state x="489" y="213" key="AndroidProcessChooserDialog/0.25.1440.875@0.25.1440.875" timestamp="1638767727009" />
     <state x="278" y="36" key="CommitChangelistDialog2" timestamp="1638345203178">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="278" y="36" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1638345203178" />
-    <state width="1398" height="296" key="GridCell.Tab.0.bottom" timestamp="1638617204207">
+    <state width="1398" height="302" key="GridCell.Tab.0.bottom" timestamp="1638771009053">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1398" height="296" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1638617204207" />
-    <state width="1398" height="296" key="GridCell.Tab.0.center" timestamp="1638617204206">
+    <state width="1398" height="302" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1638771009053" />
+    <state width="1398" height="302" key="GridCell.Tab.0.center" timestamp="1638771009053">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1398" height="296" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1638617204206" />
-    <state width="1398" height="296" key="GridCell.Tab.0.left" timestamp="1638617204206">
+    <state width="1398" height="302" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1638771009053" />
+    <state width="1398" height="302" key="GridCell.Tab.0.left" timestamp="1638771009052">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1398" height="296" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1638617204206" />
-    <state width="1398" height="296" key="GridCell.Tab.0.right" timestamp="1638617204207">
+    <state width="1398" height="302" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1638771009052" />
+    <state width="1398" height="302" key="GridCell.Tab.0.right" timestamp="1638771009053">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1398" height="296" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1638617204207" />
+    <state width="1398" height="302" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1638771009053" />
     <state x="221" y="98" key="SettingsEditor" timestamp="1638346414066">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -289,27 +274,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/home/HomeActivity.kt</url>
-          <line>518</line>
+          <line>545</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/home/HomeActivity.kt</url>
-          <line>522</line>
+          <line>549</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/home/HomeActivity.kt</url>
-          <line>577</line>
+          <line>604</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/home/HomeActivity.kt</url>
-          <line>154</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/home/HomeActivity.kt</url>
-          <line>168</line>
+          <line>163</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
