@@ -1,6 +1,7 @@
 package com.utility.finmartcontact.home
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,16 +10,15 @@ import android.net.Uri
 import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.provider.CallLog
 import android.provider.ContactsContract
 import android.provider.Settings
-import android.support.annotation.RequiresApi
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.FileProvider
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.LinearLayoutManager
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
+import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -42,6 +42,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_home.*
 import java.io.FileOutputStream
 import java.io.IOException
+import java.lang.Long
 import java.nio.file.Files
 import java.nio.file.StandardOpenOption
 import java.text.SimpleDateFormat
@@ -94,7 +95,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         progressBar = findViewById(R.id.progressBar)
         progress_circular = findViewById(R.id.progress_circular)
         txtPercent = findViewById(R.id.txtPercent)
-        rvCallList.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        rvCallList.layoutManager = LinearLayoutManager(this)
 
         lySync.visibility = View.GONE
 
@@ -208,6 +209,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
         }
 
+        @SuppressLint("Range")
         override fun doInBackground(vararg voids: Void): Void? {
             // Get Contact list from Phone
 
@@ -222,7 +224,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
 
                         var name =
-                            "" + phones!!.getString(phones!!.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                            "" + phones?.getString(phones!!.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
                         var phoneNumber =
                             "" + phones!!.getString(phones!!.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
 
@@ -410,7 +412,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         val cursor: Cursor = context.getContentResolver().query(
             CallLog.Calls.CONTENT_URI,
             null, null, null, CallLog.Calls.DATE + " DESC"
-        )
+        )!!
         val number = cursor.getColumnIndex(CallLog.Calls.NUMBER)
         val type = cursor.getColumnIndex(CallLog.Calls.TYPE)
         val date = cursor.getColumnIndex(CallLog.Calls.DATE)
@@ -433,7 +435,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
             val callType = cursor.getString(type)
             val callDate = cursor.getString(date)
 
-            val callDayTime = formatter.format(Date(java.lang.Long.valueOf(callDate)))
+            val callDayTime = formatter.format(Date(Long.valueOf(callDate)))
 
             var mob_date: Date = formatter.parse(callDayTime)
 
@@ -540,6 +542,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
             //Log.d("raw_contact", Gson().toJson(getAllContactDetails))
             //Log.d("raw_contact--size", getAllContactDetails.size.toString())
 
+
             maxProgressContact = 0
             remainderProgressContact = 0
 
@@ -551,24 +554,40 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
                 maxProgressContact = maxProgressContact + 1
             }
 
+            var tfbaid = ""
+            var tsub_fba_id = ""
+
+            if (applicationPersistance!!.getParentID().isEmpty() || applicationPersistance!!.getParentID().equals("0")){
+
+                tfbaid = applicationPersistance!!.getFBAID().toString()
+                tsub_fba_id =  applicationPersistance!!.getParentID()
+
+            }else{
+                tfbaid = applicationPersistance!!.getParentID()
+                tsub_fba_id =  applicationPersistance!!.getFBAID().toString()
+            }
+
             for (i in 0..contactlist!!.size - 1 step 1000) {
 
                 Log.d(TAGCALL, "Contact Number of data jumped ${i}")
                 subcontactlist = contactlist!!.filter { it.id > i && it.id <= (1000 + i) }
 
 
+
                 //region  Adding in Request Entity and Send to server
+
                 val contactRequestEntity = ContactLeadRequestEntity(
-                    fbaid = applicationPersistance!!.getFBAID().toString(),
-                    ssid = applicationPersistance!!.getSSID().toString(),
+                    fbaid = tfbaid,
+                    ssid = applicationPersistance!!.getSSID(),
+                    sub_fba_id = tsub_fba_id,
                     contactlist = subcontactlist,
                     raw_data = Gson().toJson(getAllContactDetails)
                 )
-
                 LoginController(this@HomeActivity).uploadContact(
                     contactRequestEntity,
                     this@HomeActivity
                 )
+
 
                 //endregion
 
@@ -611,6 +630,19 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
             Log.d(TAGCALL, "Progrss bar size" +  maxProgress +  " And Contact Size" +maxProgressContact)
 
+            var tfbaid = ""
+            var tsub_fba_id = ""
+
+            if (applicationPersistance!!.getParentID().isEmpty() || applicationPersistance!!.getParentID().equals("0")){
+
+                tfbaid = applicationPersistance!!.getFBAID().toString()
+                tsub_fba_id =  applicationPersistance!!.getParentID()
+
+            }else{
+                tfbaid = applicationPersistance!!.getParentID()
+                tsub_fba_id =  applicationPersistance!!.getFBAID().toString()
+            }
+
 
             for (i in 0..callLogList!!.size - 1 step 1000) {
 
@@ -618,18 +650,19 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
                 subLoglist = callLogList!!.filter { it.id > i && it.id <= (1000 + i) }
 
-
-
                 val callLogRequestEntity = CallLogRequestEntity(
 
                     call_history = subLoglist,
-                    fba_id = applicationPersistance!!.getFBAID(),
-                    ss_id = Integer.valueOf(applicationPersistance!!.getSSID())
+                    fba_id =  Integer.valueOf(tfbaid),
+                    sub_fba_id =  Integer.valueOf(tsub_fba_id),
+                    ss_id = Integer.valueOf(applicationPersistance.getSSID())
                 )
                 LoginController(this@HomeActivity).uploadCallLog(
                     callLogRequestEntity,
                     this@HomeActivity
                 )
+
+
 
                 //endregion
 
@@ -670,7 +703,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         try {
             // os = FileOutputStream(textFile)
 
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 Files.write(
                     textFile!!.toPath(),
                     strBody.toByteArray(),
@@ -707,6 +740,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
     }
 
 
+    @SuppressLint("Range")
     fun getNameForNumber(context: Context, number: String): String? {
 
         var res: String? = null
@@ -831,6 +865,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             Utility.READ_CONTACTS_CODE -> {
 

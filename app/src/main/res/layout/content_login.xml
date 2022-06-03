@@ -21,7 +21,7 @@
                 android:layout_width="300dp"
                 android:layout_height="130dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/finmart_logo_splash" />
+                android:src="@drawable/pb_splash_bg" />
 
         <TextView
                 android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 android:text="SYNC CONTACT"
                 android:textAppearance="@style/TextStyle.Title" />
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -46,9 +46,9 @@
                     android:inputType="textEmailAddress"
                     android:text=""
                     android:textColor="@color/white" />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/TextLabel"
                 android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                     android:inputType="textPassword"
                     android:text=""
                     android:textColor="@color/white" />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
                 android:id="@+id/btnSignIn"

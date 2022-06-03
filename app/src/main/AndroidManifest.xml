@@ -22,7 +22,7 @@
             android:theme="@style/AppTheme">
 
         <provider
-                android:name="android.support.v4.content.FileProvider"
+                android:name="androidx.core.content.FileProvider"
                 android:authorities="com.utility.finmartcontact.fileprovider"
                 android:exported="false"
                 android:grantUriPermissions="true">
@@ -33,6 +33,7 @@
         <activity
                 android:name="com.utility.finmartcontact.home.HomeActivity"
                 android:label="@string/title_activity_home"
+                android:exported="false"
                 android:parentActivityName=".BaseActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar">
@@ -44,7 +45,7 @@
         <activity
                 android:name=".login.LoginActivity"
                 android:screenOrientation="portrait"
-
+                android:exported="true"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

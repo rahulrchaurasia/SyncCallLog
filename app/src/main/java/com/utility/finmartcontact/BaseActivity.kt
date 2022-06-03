@@ -9,9 +9,9 @@ import android.graphics.pdf.PdfDocument.PageInfo
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -108,7 +108,7 @@ open class BaseActivity : AppCompatActivity() {
             share.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
             share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             share.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-            share.setDataAndType(uri, contentResolver.getType(uri))
+            share.setDataAndType(uri, uri?.let { contentResolver.getType(it) })
             share.putExtra(Intent.EXTRA_TEXT, urlToShare)
             share.putExtra(Intent.EXTRA_SUBJECT, "Quote")
             share.putExtra(Intent.EXTRA_STREAM, uri)

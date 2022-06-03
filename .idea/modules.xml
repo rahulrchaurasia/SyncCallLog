@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/FinmartSyncContact.iml" filepath="$PROJECT_DIR$/.idea/FinmartSyncContact.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SyncCallLog.iml" filepath="$PROJECT_DIR$/.idea/modules/SyncCallLog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.iml" />
     </modules>
   </component>
 </project>

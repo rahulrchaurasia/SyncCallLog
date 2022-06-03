@@ -28,7 +28,7 @@ open class ApplicationPersistance (context: Context) : IApplicationPersistance {
     override fun getUser(): LoginResponseEntity? {
         val user = sharedPreferences.getString(USER_DATA, "")
         val gson = Gson()
-        if (user.length > 0) {
+        if (user!!.length > 0) {
             val loginEntity = gson.fromJson<LoginResponse>(user, LoginResponse::class.java)
             return loginEntity.MasterData
         } else {
@@ -46,5 +46,9 @@ open class ApplicationPersistance (context: Context) : IApplicationPersistance {
 
     override fun getSSID(): String {
         if (getUser() != null) return getUser()!!.ssid else return "0"
+    }
+
+    fun getParentID(): String {
+        if (getUser() != null) return getUser()?.parentid ?: "" else return ""
     }
 }

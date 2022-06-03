@@ -3,11 +3,10 @@ package com.utility.finmartcontact.core.controller.contactfetch;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
-import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Email;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.v4.content.CursorLoader;
+import androidx.loader.content.CursorLoader;
 import android.util.Log;
 
 import java.util.ArrayList;
