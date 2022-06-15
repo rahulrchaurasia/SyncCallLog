@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-open class RetroRequestBuilder {
+open  class RetroRequestBuilder {
     internal var restAdapter: Retrofit? = null
 
     protected fun build(): Retrofit {

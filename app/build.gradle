@@ -21,8 +21,8 @@ android {
             minifyEnabled false
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "FINMART_URL", '"http://api.magicfinmart.com"'
-            buildConfigField "String", "SYNC_CONTACT_URL", '"http://horizon.policyboss.com:5000/sync_contacts"'
+            buildConfigField "String", "FINMART_URL", '"https://api.magicfinmart.com"'
+            buildConfigField "String", "SYNC_CONTACT_URL", '"https://horizon.policyboss.com:5000/sync_contacts"'
             buildConfigField "String", "PHP_URL", '"http://bo.magicfinmart.com/"'
 
         }
@@ -38,6 +38,14 @@ android {
 
 
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }
 

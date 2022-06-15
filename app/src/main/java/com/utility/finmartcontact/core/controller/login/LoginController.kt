@@ -65,7 +65,7 @@ class LoginController(val context : Context) : BaseController() ,ILogin {
 
         var url = BuildConfig.SYNC_CONTACT_URL + "/contact_entry"
 
-        loginNetwork.saveContactLead(url ,contactLeadRequestEntity).enqueue(object : Callback<ContactLeadResponse>{
+        loginNetwork.saveContactLeadOld(url ,contactLeadRequestEntity).enqueue(object : Callback<ContactLeadResponse>{
 
 
             override fun onResponse(call: Call<ContactLeadResponse>, response: Response<ContactLeadResponse>) {
@@ -95,26 +95,26 @@ class LoginController(val context : Context) : BaseController() ,ILogin {
     ) {
         var url = BuildConfig.SYNC_CONTACT_URL + "/contact_call_history"
 
-        loginNetwork.saveCallLog(url ,callLogRequestEntity).enqueue(object : Callback<ContactLogResponse>{
-
-
-            override fun onResponse(call: Call<ContactLogResponse>, response: Response<ContactLogResponse>) {
-                if (response!!.isSuccessful) {
-                    if (response.body()?.StatusNo == 0) {
-
-                        iResponseSubcriber.onSuccess(response.body()!!, response.message())
-                    } else {
-                        iResponseSubcriber.onFailure(response.body()?.Message!!)
-                    }
-                } else {
-                    iResponseSubcriber.onFailure(errorStatus(response.code().toString()))
-                }
-            }
-
-            override fun onFailure(call: Call<ContactLogResponse>, t: Throwable) {
-
-                iResponseSubcriber.onFailure("Server error, Try again later")
-            }
-        })
+//        loginNetwork.saveCallLog(url ,callLogRequestEntity).enqueue(object : Callback<ContactLogResponse>{
+//
+//
+//            override fun onResponse(call: Call<ContactLogResponse>, response: Response<ContactLogResponse>) {
+//                if (response!!.isSuccessful) {
+//                    if (response.body()?.StatusNo == 0) {
+//
+//                        iResponseSubcriber.onSuccess(response.body()!!, response.message())
+//                    } else {
+//                        iResponseSubcriber.onFailure(response.body()?.Message!!)
+//                    }
+//                } else {
+//                    iResponseSubcriber.onFailure(errorStatus(response.code().toString()))
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ContactLogResponse>, t: Throwable) {
+//
+//                iResponseSubcriber.onFailure("Server error, Try again later")
+//            }
+//        })
     }
 }

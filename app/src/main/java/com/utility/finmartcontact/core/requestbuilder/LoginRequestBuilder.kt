@@ -9,6 +9,7 @@ import com.utility.finmartcontact.core.response.ContactLogResponse
 import com.utility.finmartcontact.core.response.LoginResponse
 import com.utility.finmartcontact.core.response.LoginResponseEntity
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
@@ -31,12 +32,20 @@ open class LoginRequestBuilder : RetroRequestBuilder() {
         fun login(@Body body : LoginRequestEntity): Call<LoginResponse>
 
 
+        @POST()
+        fun saveContactLead(@Url url: String, @Body body : ContactLeadRequestEntity): Response<ContactLeadResponse>
+
 
         @POST()
-        fun saveContactLead(@Url url: String, @Body body : ContactLeadRequestEntity): Call<ContactLeadResponse>
+        suspend fun saveCallLog(@Url url: String, @Body body : CallLogRequestEntity): Response<ContactLogResponse>
+
+
 
         @POST()
-        fun saveCallLog(@Url url: String, @Body body : CallLogRequestEntity): Call<ContactLogResponse>
+         fun saveContactLeadOld(@Url url: String, @Body body : ContactLeadRequestEntity): Call<ContactLeadResponse>
+
+//        @POST()
+//         fun saveCallLog(@Url url: String, @Body body : CallLogRequestEntity): Call<ContactLogResponse>
 
     }
 }

@@ -44,7 +44,7 @@
                     style="@style/Style.edittext"
                     android:drawableRight="@drawable/vector_email_white"
                     android:inputType="textEmailAddress"
-                    android:text=""
+                    android:text="iostest15@gmail.com"
                     android:textColor="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,8 +61,8 @@
                     android:id="@+id/etPassword"
                     style="@style/Style.edittext"
                     android:inputType="textPassword"
-                    android:text=""
-                    android:textColor="@color/white" />
+                    android:text="123456"
+                    android:textColor="@color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

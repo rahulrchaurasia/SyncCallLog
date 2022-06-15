@@ -9,16 +9,17 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.util.Log
 import android.view.View
-import com.utility.finmartcontact.APIResponse
-import com.utility.finmartcontact.BaseActivity
-import com.utility.finmartcontact.IResponseSubcriber
-import com.utility.finmartcontact.R
+import com.utility.finmartcontact.*
 import com.utility.finmartcontact.core.controller.login.LoginController
+import com.utility.finmartcontact.core.requestbuilder.LoginRequestBuilder
 import com.utility.finmartcontact.core.requestentity.LoginRequestEntity
 import com.utility.finmartcontact.core.response.LoginResponse
 import com.utility.finmartcontact.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.content_login.*
+import kotlinx.coroutines.*
+import okhttp3.internal.wait
+import retrofit2.await
 
 
 class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
@@ -114,13 +115,29 @@ class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
                 )
 
                 showLoading("Authenticating user..")
-                LoginController(this).login(loginRequestEntity, this)
+               LoginController(this).login(loginRequestEntity, this)
+
+
+//                GlobalScope.launch {
+//
+//                    val result = RetroHelper.api.login(loginRequestEntity)
+//                    if(result != null){
+//
+//                        dismissDialog()
+//                        Log.d("MYDATA", result.await().Status)
+//                    }
+//
+//
+//                }
+
 
 
 
             }
         }
     }
+
+
 
     override fun onSuccess(response: APIResponse, message: String) {
 

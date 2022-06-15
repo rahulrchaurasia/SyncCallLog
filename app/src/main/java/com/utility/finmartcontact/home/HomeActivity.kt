@@ -13,21 +13,24 @@ import android.os.Bundle
 import android.provider.CallLog
 import android.provider.ContactsContract
 import android.provider.Settings
-import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
-import androidx.appcompat.app.AlertDialog
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.work.*
 import com.github.tamir7.contacts.Contacts
 import com.google.gson.Gson
 import com.utility.finmartcontact.APIResponse
 import com.utility.finmartcontact.BaseActivity
-import com.utility.finmartcontact.CallLog.CallLogAdapter
 import com.utility.finmartcontact.IResponseSubcriber
 import com.utility.finmartcontact.R
 import com.utility.finmartcontact.core.controller.login.LoginController
@@ -37,6 +40,11 @@ import com.utility.finmartcontact.core.requestentity.CallLogRequestEntity
 import com.utility.finmartcontact.core.requestentity.ContactLeadRequestEntity
 import com.utility.finmartcontact.core.response.ContactLeadResponse
 import com.utility.finmartcontact.core.response.ContactLogResponse
+import com.utility.finmartcontact.home.Worker.CallLogWorkManager
+import com.utility.finmartcontact.home.Worker.CallLogWorkManager.Companion.MAXProgress
+import com.utility.finmartcontact.home.Worker.CallLogWorkManager.Companion.Progress
+import com.utility.finmartcontact.home.Worker.ContactLogWorkManager
+import com.utility.finmartcontact.utility.Constant
 import com.utility.finmartcontact.utility.Utility
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_home.*
@@ -47,12 +55,22 @@ import java.nio.file.Files
 import java.nio.file.StandardOpenOption
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.Array
+import kotlin.Boolean
+import kotlin.Exception
+import kotlin.Int
+import kotlin.IntArray
+import kotlin.String
+import kotlin.arrayOf
+import kotlin.let
+import kotlin.toString
 
 
 class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
     private val TAG = "CONTACT"
     private val TAGCALL = "CALL_LOG"
+
     var contactlist: MutableList<ContactlistEntity>? = null
     var templist: MutableList<String>? = null
     var phones: Cursor? = null
@@ -115,6 +133,14 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
     }
 
 
+    override fun onResume() {
+        super.onResume()
+
+        //Note : Used For handling Notification Click Action
+      //  checkIntent(intent)
+    }
+
+
     //region Event
     override fun onClick(v: View?) {
         when (v?.id) {
@@ -128,12 +154,12 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
                     }
                 } else {
 
-
+                   // syncContactNumber()
                     // API For Contact
 
                     initData()
 
-                    syncContactNumber()
+                    setOneTimeRequestWithCoroutine()
 
 
                 }
@@ -285,7 +311,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
 
             // API For CallLog
-            LoadCallLogTask().execute()
+           // LoadCallLogTask().execute()
 
 
         }
@@ -362,8 +388,10 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         currentProgress =0
         maxProgress = 0
         progressBar!!.setProgress(currentProgress)
+
+      //  progress_circular!!.visibility = View.VISIBLE
+
         lySync.visibility = View.VISIBLE
-        progress_circular!!.visibility = View.VISIBLE
         btnSync.background?.alpha = 80
         btnSync.isEnabled = false
         txtPercent.text = "0%"
@@ -576,12 +604,13 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
                 //region  Adding in Request Entity and Send to server
 
+                //Gson().toJson(getAllContactDetails)
                 val contactRequestEntity = ContactLeadRequestEntity(
                     fbaid = tfbaid,
                     ssid = applicationPersistance!!.getSSID(),
                     sub_fba_id = tsub_fba_id,
                     contactlist = subcontactlist,
-                    raw_data = Gson().toJson(getAllContactDetails)
+                    raw_data = ""
                 )
                 LoginController(this@HomeActivity).uploadContact(
                     contactRequestEntity,
@@ -602,7 +631,6 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
 
     }
-
 
     fun sendCallLogToServer() {
 
@@ -873,7 +901,9 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
                     && grantResults[1] == PackageManager.PERMISSION_GRANTED
                 ) {
                     // syncContactNumber()
-                    getCallDetails(this)
+                   // getCallDetails(this)
+
+                    setOneTimeRequestWithCoroutine()
                 }
             }
         }
@@ -885,7 +915,204 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
 
 
+    private fun setOneTimeRequestWithCoroutine(){
+        // uses forground Service
 
+        lySync.visibility = View.VISIBLE
+        txtMessage.visibility = View.VISIBLE
+        val workManager: WorkManager = WorkManager.getInstance(applicationContext)
+
+        //callLogList: MutableList<CallLogEntity>
+
+        val data: Data = Data.Builder()
+            .putInt(Constant.KEY_fbaid, applicationPersistance!!.getFBAID())
+            .putString(Constant.KEY_parentid,applicationPersistance!!.getParentID())
+            .putString(Constant.KEY_ssid,applicationPersistance!!.getSSID())
+            .build()
+
+
+//        WorkManager.getInstance(this)
+//            .beginUniqueWork("CallLogWorkManager", ExistingWorkPolicy.APPEND_OR_REPLACE,
+//                OneTimeWorkRequest.from(CallLogWorkManager::class.java)).enqueue().state
+//            .observe(this) { state ->
+//                Log.d(TAGCALL, "CallLogWorkManager: $state")
+//            }
+
+        val constraintNetworkType: Constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
+
+
+       val callLogWorkRequest : OneTimeWorkRequest =
+                                OneTimeWorkRequest.Builder(CallLogWorkManager::class.java)
+                                    .addTag(Constant.TAG_SAVING_CALL_LOG)
+                                    .setConstraints(constraintNetworkType)
+                                    .setInputData(data)
+                                    .build()
+
+
+        val ContactWorkRequest : OneTimeWorkRequest =
+            OneTimeWorkRequest.Builder(ContactLogWorkManager::class.java)
+                .addTag(Constant.TAG_SAVING_CALL_LOG)
+                .setConstraints(constraintNetworkType)
+                .setInputData(data)
+                .build()
+
+        // Todo : For Chain (Parallel Chaining)
+        val parallelWorks:MutableList<OneTimeWorkRequest> = mutableListOf<OneTimeWorkRequest>()
+        parallelWorks.add(callLogWorkRequest)
+        workManager.beginWith(parallelWorks)
+                .enqueue()
+
+
+
+        workManager.getWorkInfoByIdLiveData(callLogWorkRequest.id)
+            .observe(this,{workInfo: WorkInfo? ->
+
+
+               // txtMessage.text = workInfo.state.name
+
+                if(workInfo != null ){
+
+                    val progress = workInfo.progress
+                    val valueprogress = progress.getInt(Progress, 0)
+                    val valueMaxProgress = progress.getInt(MAXProgress, 0)
+                    updateProgrees(valueprogress,valueMaxProgress)
+                    Log.d("CALL_LOG", "MaxProgress Progress :--> ${valueMaxProgress} and currentProgress :  ${valueprogress}")
+                    if( workInfo.state.isFinished){
+                        val opData : Data  = workInfo.outputData
+                        val msg : String? = opData.getString(Constant.KEY_result)
+                        val errormsg : String? = opData.getString(Constant.KEY_error_result)
+                       Log.d("CALL_LOG",workInfo.state.name + "\n\n" +msg)
+
+
+                        if(!errormsg.isNullOrEmpty()){
+                          //  errormsg?.let { saveMessage(it) }
+                            errorMessage(errormsg)
+                        }else{
+                            if(msg.isNullOrEmpty()){
+                                saveMessage()
+                            }else{
+                                saveMessage(msg)
+                            }
+                        }
+
+
+
+
+
+                    }
+
+
+                }
+
+
+
+            })
+
+        workManager.getWorkInfoByIdLiveData(ContactWorkRequest.id)
+            .observe(this,{workInfo: WorkInfo? ->
+
+
+                // txtMessage.text = workInfo.state.name
+
+                if(workInfo != null ){
+
+                    val progress = workInfo.progress
+                    val valueprogress = progress.getInt(Progress, 0)
+                    val valueMaxProgress = progress.getInt(MAXProgress, 0)
+                    updateProgrees(valueprogress,valueMaxProgress)
+                    Log.d("CALL_LOG", "MaxProgress Progress :--> ${valueMaxProgress} and currentProgress :  ${valueprogress}")
+                    if( workInfo.state.isFinished){
+                        val opData : Data  = workInfo.outputData
+                        val msg : String? = opData.getString(Constant.KEY_result)
+                        val errormsg : String? = opData.getString(Constant.KEY_error_result)
+                        Log.d("CALL_LOG",workInfo.state.name + "\n\n" +msg)
+
+
+                        if(!errormsg.isNullOrEmpty()){
+                            //  errormsg?.let { saveMessage(it) }
+                            errorMessage(errormsg)
+                        }else{
+                            if(msg.isNullOrEmpty()){
+                                saveMessage()
+                            }else{
+                                saveMessage(msg)
+                            }
+                        }
+
+
+
+
+
+                    }
+
+
+                }
+
+
+
+            })
+    }
+
+    private fun updateProgrees(currentProg : Int , maxProg : Int){
+
+        progressBar!!.max = maxProg
+        progressBar!!.setProgress(currentProg)
+
+        if(maxProg >0){
+            txtPercent.text = "${(currentProg*100)/maxProg} %"
+        }
+
+    }
+
+    private fun saveMessage(opMessage : String = "Data Save Successfully..."){
+
+        btnSync.setBackgroundColor(
+            ContextCompat.getColor(
+                this@HomeActivity!!,
+                R.color.colorPrimaryDark
+            )
+        )
+        btnSync.isEnabled = true
+       // progress_circular!!.visibility = View.GONE
+        txtMessage.text = opMessage
+        txtPercent.text ="100%"
+
+    }
+
+    private fun errorMessage(opMessage : String = "Data not Uploade. Please Try Again..."){
+
+        btnSync.setBackgroundColor(
+            ContextCompat.getColor(
+                this@HomeActivity!!,
+                R.color.colorPrimaryDark
+            )
+        )
+        btnSync.isEnabled = true
+        progress_circular!!.visibility = View.GONE
+        txtMessage.text = opMessage
+
+
+    }
+
+    private fun checkIntent(intent: Intent?) {
+        intent?.let {
+            if (it.hasExtra(Constant.NOTIFICATION_EXTRA)) {
+
+                val progress = it.getIntExtra(Constant.NOTIFICATION_PROGRESS,100)
+                val maxProgress = it.getIntExtra(Constant.NOTIFICATION_MAX,100)
+                val message = it.getStringExtra(Constant.NOTIFICATION_MESSAGE)
+
+                lySync.visibility = View.VISIBLE
+                btnSync.background?.alpha = 80
+                btnSync.isEnabled = false
+
+                updateProgrees( progress,maxProgress)
+                txtMessage.text = message
+            }
+        }
+    }
 
 }
 
