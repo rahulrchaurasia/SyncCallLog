@@ -14,7 +14,6 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.work.*
-import com.utility.finmartcontact.BuildConfig
 import com.utility.finmartcontact.R
 import com.utility.finmartcontact.RetroHelper
 import com.utility.finmartcontact.core.model.CallLogEntity
@@ -24,8 +23,10 @@ import com.utility.finmartcontact.utility.Constant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
+
 import java.lang.Long
 import java.text.SimpleDateFormat
+import com.utility.finmartcontact.BuildConfig
 import java.util.*
 import kotlin.Exception
 import kotlin.Int
@@ -47,11 +48,7 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
 
-    companion object {
-        const val Progress = "Progress"
-        const val MAXProgress = "MAXProgress"
-        private const val delayDuration = 1L
-    }
+
 
     override suspend fun doWork(): Result {
 
@@ -65,6 +62,7 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
                 // Log.d("CallLogWorker", callLogList.toString())
                 val outPutData: Data = Data.Builder()
                     .putString(Constant.KEY_result, "Data Uploaded Successfully..")
+                    .putInt(Constant.KEY_result, 0)
                     .build()
                 Result.success(outPutData)
             }
@@ -105,7 +103,7 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
 
         //endregion
 
-        delay(2000)
+        //delay(2000)
 
         withContext(Dispatchers.IO) {
 
@@ -115,32 +113,33 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
             var callLogList = getCallDetails()
 
             //temp 05 added : have to remove below one line
-            callLogList = callLogList.take(41) as MutableList<CallLogEntity>
+           // callLogList = callLogList.take(41) as MutableList<CallLogEntity>
 
             var remainderProgress = 0
             var maxProgress = 0
             var currentProgress = 0
-            maxProgress = callLogList!!.size / 5
+            var defaultProgress = 1
+            maxProgress = callLogList!!.size / 1000
 
-            remainderProgress = callLogList!!.size % 5
-
+            remainderProgress = callLogList!!.size % 1000
+            maxProgress = maxProgress + defaultProgress
             if (remainderProgress > 0) {
                 maxProgress = maxProgress + 1
             }
             //  maxProgress = maxProgress + maxProgressContact
            // Log.d(TAG, "maxProgress ${maxProgress}")
-            setForeground(createForegroundInfo(maxProgress, 0, strbody))
+            setForeground(createForegroundInfo(maxProgress, defaultProgress, strbody))
 
             /////
 
             var subLoglist: List<CallLogEntity>
             if (callLogList != null && callLogList!!.size > 0) {
 
-                for (i in 0..callLogList!!.size - 1 step 5) {
+                for (i in 0..callLogList!!.size - 1 step 1000) {
 
                     Log.d(TAG, "CallLog Number of data jumped ${i}")
 
-                    subLoglist = callLogList!!.filter { it.id > i && it.id <= (5 + i) }
+                    subLoglist = callLogList!!.filter { it.id > i && it.id <= (1000 + i) }
 
 
 
@@ -155,16 +154,17 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
                     )
 
                     val resultResp = RetroHelper.api.saveCallLog(url, callLogRequestEntity)
+                   // val resultResp = RetroHelper.api.saveCallLog(url, callLogRequestEntity).await()
 
                     if (resultResp.isSuccessful) {
 
 
                         //region send Notification Progress
-                        Log.d(TAG, resultResp.body()?.Message ?: "Save")
+                       // Log.d(TAG, resultResp.Message ?: "Save")
 
                         currentProgress = currentProgress + 1
-                        val workProgess = workDataOf(Progress to currentProgress,
-                                                     MAXProgress to maxProgress)
+                        val workProgess = workDataOf(Constant.CALL_LOG_Progress to currentProgress,
+                                                     Constant.CALL_LOG_MAXProgress to maxProgress)
                         setProgress(workProgess)
                         if (currentProgress < maxProgress) {
                             setForeground(
@@ -187,7 +187,7 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
                         }
                         //endregion
 
-                        delay(8000)
+                      //  delay(2000)
 
                     }
 
@@ -198,8 +198,8 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
                     // region Commented : -> For Testing without Service
                     ////////////// temp Handling ////////////////////////////
 //                    currentProgress = currentProgress + 1
-//                    val workProgess = workDataOf(Progress to currentProgress,
-//                        MAXProgress to maxProgress)
+//                    val workProgess = workDataOf(Constant.CALL_LOG_Progress to currentProgress,
+//                        Constant.CALL_LOG_MAXProgress to maxProgress)
 //                    setProgress(workProgess)
 //                    if (currentProgress < maxProgress) {
 //                        setForeground(
@@ -230,6 +230,7 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
 
 
         }
+
 
 
     }
@@ -360,7 +361,7 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
 
     //endregion
 
-    private fun getCallDetails(): MutableList<CallLogEntity> {
+    private  fun getCallDetails(): MutableList<CallLogEntity> {
 
         var formatter: SimpleDateFormat = SimpleDateFormat("dd-MMM-yyyy HH:mm:ss")
         var calenderMobDate = Calendar.getInstance()

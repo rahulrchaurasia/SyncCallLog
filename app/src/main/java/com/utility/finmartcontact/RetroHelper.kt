@@ -34,7 +34,6 @@ object   RetroHelper {
             .baseUrl(BuildConfig.FINMART_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
-           // .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
     }
     val api : LoginRequestBuilder.LoginNetworkService by lazy {

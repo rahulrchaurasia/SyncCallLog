@@ -22,13 +22,13 @@ import com.utility.finmartcontact.core.model.ContactlistEntity
 import com.utility.finmartcontact.core.requestentity.CallLogRequestEntity
 import com.utility.finmartcontact.core.requestentity.ContactLeadRequestEntity
 import com.utility.finmartcontact.home.HomeActivity
-import com.utility.finmartcontact.home.Worker.CallLogWorkManager.Companion.MAXProgress
-import com.utility.finmartcontact.home.Worker.CallLogWorkManager.Companion.Progress
+
 import com.utility.finmartcontact.utility.Constant
 import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
+import retrofit2.await
 import retrofit2.awaitResponse
 import java.util.ArrayList
 
@@ -49,12 +49,12 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
             Log.d("CallLogWorker", "Run work manager")
             //Do Your task here
 
-            callContactTask()
+           var ContactCount = callContactTask()
 
 
             // Log.d("CallLogWorker", callLogList.toString())
             val outPutData: Data = Data.Builder()
-                .putString(Constant.KEY_result, "Data Uploaded Successfully..")
+                .putString(Constant.KEY_result, "${ContactCount}")
                 .build()
             Result.success(outPutData)
         }
@@ -69,10 +69,16 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
 
     }
 
-    private suspend fun callContactTask() {
-        var strbody = "Contact is Uploading Please wait.."
-        var strResultbody = "Successfully Uploaded.."
-        setForeground(createForegroundInfo(0, 0, strbody))
+    private suspend fun callContactTask() : Int {
+
+        var ContactCount = 0
+
+        //region Comment : Not In Used
+     //   var strbody = "Contact is Uploading Please wait.."
+     //   var strResultbody = "Successfully Uploaded.."
+      //  setForeground(createForegroundInfo(0, 0, strbody))
+
+        //endregion
 
 
         // region getting Input Data
@@ -94,7 +100,7 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
         }
 
         //endregion
-        delay(2000)
+      //  delay(2000)
 
         withContext(Dispatchers.IO) {
 
@@ -102,21 +108,25 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
 
             var contactlist = getContactList()
 
+            ContactCount = contactlist.size
+
+            //temp 05 added : have to remove below one line
+           // contactlist = contactlist.take(15) as MutableList<ContactlistEntity>
+
+          //region comment
+//            var remainderProgress = 0
+//            var maxProgress = 0
+//            var currentProgress = 0
+//            maxProgress = contactlist!!.size / 5
+//
+//            remainderProgress = contactlist!!.size % 5
+//            if (remainderProgress > 0) {
+//                maxProgress = maxProgress + 1
+//            }
+            //endregion
 
 
-
-            contactlist = contactlist.take(10) as MutableList<ContactlistEntity>
-
-            var remainderProgress = 0
-            var maxProgress = 0
-            var currentProgress = 0
-            maxProgress = contactlist!!.size / 5
-
-            remainderProgress = contactlist!!.size % 5
-            if (remainderProgress > 0) {
-                maxProgress = maxProgress + 1
-            }
-            setForeground(createForegroundInfo(maxProgress, 0, strbody))
+         //   setForeground(createForegroundInfo(maxProgress, 0, strbody))
             var subcontactlist: List<ContactlistEntity>
 
             if (contactlist != null && contactlist!!.size > 0) {
@@ -124,83 +134,75 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
                 var getAllContactDetails = Contacts.getQuery().find()
 
 
-                for (i in 0..contactlist!!.size - 1 step 5) {
+                for (i in 0..contactlist!!.size - 1 step 1000) {
 
                     Log.d(TAG, "CallLog Number of data jumped ${i}")
 
-                    subcontactlist = contactlist!!.filter { it.id > i && it.id <= (5 + i) }
+                    subcontactlist = contactlist!!.filter { it.id > i && it.id <= (1000 + i) }
 
 
+                      // region calling to server
 
-                    // region calling to server
 
-
-//                    val contactRequestEntity = ContactLeadRequestEntity(
-//                        fbaid = tfbaid,
-//                        ssid = ssid!!,
-//                        sub_fba_id = tsub_fba_id,
-//                        contactlist = subcontactlist,
-//                        raw_data = Gson().toJson(getAllContactDetails)
-//                    )
                     val contactRequestEntity = ContactLeadRequestEntity(
-                        fbaid = "89435",
-                        ssid ="119227",
-                        sub_fba_id = "0",
-                        contactlist = null,
-                        raw_data = ""
+                        fbaid = tfbaid,
+                        ssid = ssid!!,
+                        sub_fba_id = tsub_fba_id,
+                        contactlist = subcontactlist,
+                        raw_data = Gson().toJson(getAllContactDetails)
                     )
 
-                    val resultResp = RetroHelper.api.saveContactLead(url, contactRequestEntity)
-
-                    if (resultResp.isSuccessful()) {
+                        val resultResp = RetroHelper.api.saveContactLead(url, contactRequestEntity).await()
 
 
-                        //region send Notification Progress
-                        Log.d(TAG, resultResp.body()?.Message ?: "Save")
+                        if (resultResp.StatusNo == 0) {
 
-                        currentProgress = currentProgress + 1
-                        val workProgess = workDataOf(
-                            CallLogWorkManager.Progress to currentProgress,
-                            CallLogWorkManager.MAXProgress to maxProgress)
-                        setProgress(workProgess)
-                        if (currentProgress < maxProgress) {
-                            setForeground(
-                                createForegroundInfo(
-                                    maxProgress = maxProgress,
-                                    progress = currentProgress,
-                                    strbody = strbody
-                                )
-                            )
+                            //region send Notification Progress
+                          //  Log.d(TAG, resultResp.Message ?: "Save")
 
-                        } else {
-                            setForeground(
-                                createForegroundInfo(
-                                    maxProgress = maxProgress,
-                                    progress = currentProgress,
-                                    strbody = strResultbody
-                                )
-                            )
+//                            currentProgress = currentProgress + 1
+//                            val workProgess = workDataOf(
+//                                Constant.CALL_LOG_Progress to currentProgress,
+//                                Constant.CALL_LOG_MAXProgress to maxProgress)
+//                            setProgress(workProgess)
+//                            if (currentProgress < maxProgress) {
+//                                setForeground(
+//                                    createForegroundInfo(
+//                                        maxProgress = maxProgress,
+//                                        progress = currentProgress,
+//                                        strbody = strbody
+//                                    )
+//                                )
+//
+//                            } else {
+//                                setForeground(
+//                                    createForegroundInfo(
+//                                        maxProgress = maxProgress,
+//                                        progress = currentProgress,
+//                                        strbody = strResultbody
+//                                    )
+//                                )
+//
+//                            }
+                            //endregion
 
+                           // delay(8000)
+
+                        }else{
+
+                            Log.d(TAG, resultResp.toString())
                         }
+
+
                         //endregion
-
-                        delay(8000)
-
-                    }else{
-
-                        Log.d(TAG, resultResp.errorBody().toString())
-                    }
-
-
-                    //endregion
 
 
 
                     // region Commented : -> For Testing without Service
-                    //////////// temp Handling ////////////////////////////
+                    ////////// temp Handling ////////////////////////////
 //                    currentProgress = currentProgress + 1
-//                    val workProgess = workDataOf(Progress to currentProgress,
-//                        MAXProgress to maxProgress)
+//                    val workProgess = workDataOf(Constant.CONTACT_LOG_Progress to currentProgress,
+//                        Constant.CONTACT_LOG_Progress to maxProgress)
 //                    setProgress(workProgess)
 //                    if (currentProgress < maxProgress) {
 //                        setForeground(
@@ -231,8 +233,9 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
 
         }
 
+        return ContactCount
     }
-    private fun getContactList(): MutableList<ContactlistEntity> {
+    private  fun getContactList(): MutableList<ContactlistEntity> {
 
         var contactlist: MutableList<ContactlistEntity> = ArrayList<ContactlistEntity>()
         var templist: MutableList<String> = ArrayList<String>()
@@ -299,10 +302,7 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
                                     mobileno = phoneNumber,
                                     id = i
                                 )
-                                Log.i(
-                                    TAG,
-                                    "Key ID: " + i + " Name: " + name + " Mobile: " + phoneNumber + "\n"
-                                );
+                               // Log.i(TAG, "Key ID: " + i + " Name: " + name + " Mobile: " + phoneNumber + "\n");
                                 contactlist.add(selectUser)
 
                             }
@@ -421,7 +421,7 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
             .build()
 
 
-        return ForegroundInfo(1, notificationBuilder.build())
+        return ForegroundInfo(2, notificationBuilder.build())
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

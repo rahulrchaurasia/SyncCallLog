@@ -32,12 +32,19 @@ open class LoginRequestBuilder : RetroRequestBuilder() {
         fun login(@Body body : LoginRequestEntity): Call<LoginResponse>
 
 
+//        @POST()
+//        fun saveContactLead(@Url url: String, @Body body : ContactLeadRequestEntity): Response<ContactLeadResponse>
+
+
         @POST()
-        fun saveContactLead(@Url url: String, @Body body : ContactLeadRequestEntity): Response<ContactLeadResponse>
+        fun saveContactLead(@Url url: String, @Body body : ContactLeadRequestEntity): Call<ContactLeadResponse>
 
 
         @POST()
         suspend fun saveCallLog(@Url url: String, @Body body : CallLogRequestEntity): Response<ContactLogResponse>
+
+        @POST()
+        suspend fun saveCallLogOld(@Url url: String, @Body body : CallLogRequestEntity): Call<ContactLogResponse>
 
 
 

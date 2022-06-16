@@ -9,13 +9,16 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.util.Log
 import android.view.View
+import com.google.android.material.snackbar.Snackbar
 import com.utility.finmartcontact.*
 import com.utility.finmartcontact.core.controller.login.LoginController
 import com.utility.finmartcontact.core.requestbuilder.LoginRequestBuilder
 import com.utility.finmartcontact.core.requestentity.LoginRequestEntity
 import com.utility.finmartcontact.core.response.LoginResponse
 import com.utility.finmartcontact.home.HomeActivity
+import com.utility.finmartcontact.utility.NetworkUtils
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.android.synthetic.main.content_login.*
 import kotlinx.coroutines.*
 import okhttp3.internal.wait
@@ -92,9 +95,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
     }
 
 
-    override fun onClick(v: View?) {
+    override fun onClick(view: View?) {
 
-        when (v?.id) {
+        when (view?.id) {
             R.id.btnSignIn -> {
 
                 hideKeyBoard(btnSignIn)
@@ -107,7 +110,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
                     showMessage(etPassword, "Invalid password", "", null)
                     return
                 }
-
+                if(!NetworkUtils.isNetworkAvailable(this@LoginActivity)){
+                    Snackbar.make(view,"No Internet Connection", Snackbar.LENGTH_SHORT).show()
+                    return
+                }
                 var loginRequestEntity = LoginRequestEntity(
                     UserName = etEmail.text.toString(),
                     Password = etPassword.text.toString(),
