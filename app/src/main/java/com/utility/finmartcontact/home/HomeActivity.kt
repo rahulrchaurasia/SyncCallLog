@@ -1102,7 +1102,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
     private fun saveMessage(opMessage : String = "Data Save Successfully..."){
 
 
-        CvSync.setBackgroundColor(
+        CvSync.setCardBackgroundColor(
             ContextCompat.getColor(
                 this@HomeActivity!!,
                 R.color.colorPrimaryDark

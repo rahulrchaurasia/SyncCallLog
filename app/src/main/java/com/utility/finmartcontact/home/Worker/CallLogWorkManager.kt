@@ -123,13 +123,16 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
 
             remainderProgress = callLogList!!.size % 1000
             maxProgress = maxProgress + defaultProgress
+            currentProgress = defaultProgress
             if (remainderProgress > 0) {
                 maxProgress = maxProgress + 1
             }
             //  maxProgress = maxProgress + maxProgressContact
            // Log.d(TAG, "maxProgress ${maxProgress}")
-            setForeground(createForegroundInfo(maxProgress, defaultProgress, strbody))
-
+            setForeground(createForegroundInfo(maxProgress, currentProgress, strbody))
+            val workProgessDefault = workDataOf(Constant.CALL_LOG_Progress to currentProgress,
+                Constant.CALL_LOG_MAXProgress to maxProgress)
+            setProgress(workProgessDefault)
             /////
 
             var subLoglist: List<CallLogEntity>
