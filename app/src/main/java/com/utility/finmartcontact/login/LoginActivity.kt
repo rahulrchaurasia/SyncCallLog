@@ -103,11 +103,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
                 hideKeyBoard(btnSignIn)
 
                 if (etEmail.text.toString().isEmpty()) {
-                    showMessage(etEmail, "Invalid input", "", null)
+                    showMessage(etEmail, "Enter Email/User ID", "", null)
                     return
                 }
                 if (etPassword.text.toString().isEmpty()) {
-                    showMessage(etPassword, "Invalid password", "", null)
+                    showMessage(etPassword, "Enter Password", "", null)
                     return
                 }
                 if(!NetworkUtils.isNetworkAvailable(this@LoginActivity)){
