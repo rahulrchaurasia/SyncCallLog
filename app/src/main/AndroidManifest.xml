@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
 
 
+
     <application
             android:name=".MyApplication"
             android:allowBackup="true"
@@ -33,6 +34,7 @@
         </provider>
         <activity
                 android:name="com.utility.finmartcontact.home.HomeActivity"
+               android:launchMode="standard"
                 android:label="@string/title_activity_home"
                 android:exported="false"
                 android:parentActivityName=".BaseActivity"
@@ -45,6 +47,7 @@
 
         <activity
                 android:name=".login.LoginActivity"
+                android:launchMode="standard"
                 android:screenOrientation="portrait"
                 android:exported="true"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustPan">

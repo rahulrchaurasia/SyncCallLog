@@ -10,11 +10,16 @@ interface IApplicationPersistance {
 
 
 
-    fun saveUser(loginResponse: LoginResponse): Boolean
+    fun saveUser(loginResponse: LoginResponse)
 
     fun getUser(): LoginResponseEntity?
 
     fun getFBAID(): Int
 
     fun getSSID(): String
+
+
+    fun setFBAAndSSID(fbaId : String,ssId : String,parentID : String)
+
 }
+

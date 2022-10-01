@@ -18,10 +18,7 @@ import android.provider.Settings
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
@@ -36,6 +33,7 @@ import com.utility.finmartcontact.APIResponse
 import com.utility.finmartcontact.BaseActivity
 import com.utility.finmartcontact.IResponseSubcriber
 import com.utility.finmartcontact.R
+import com.utility.finmartcontact.core.controller.facade.ApplicationPersistance
 import com.utility.finmartcontact.core.controller.login.LoginController
 import com.utility.finmartcontact.core.model.CallLogEntity
 import com.utility.finmartcontact.core.model.ContactlistEntity
@@ -128,9 +126,13 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         currentPrevDate = formatter.format(calenderPrevDate.time)
         Log.d(TAGCALL, "Prev One Month :" + currentPrevDate)
 
+      var preferences =ApplicationPersistance(this)
+        Toast.makeText(this,"FBAID is ${ApplicationPersistance(this)
+             .getFBAID()} and SSID is ${preferences.getSSID()} Parent ID is ${preferences.getParentID()}",Toast.LENGTH_LONG).show()
 
-
-        //endregion
+        Log.d(TAG,"FBAID is ${ApplicationPersistance(this).getFBAID()} and SSID is ${preferences.getSSID()} " +
+                "Parent ID is ${preferences.getParentID()} " )
+     //   endregion
 
     }
 
@@ -1127,6 +1129,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
             )
         )
         CvSync.isEnabled = true
+        btnSync.isEnabled = true
         progress_circular!!.visibility = View.GONE
         txtMessage.text = opMessage
 

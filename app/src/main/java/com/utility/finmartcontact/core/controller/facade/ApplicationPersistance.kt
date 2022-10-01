@@ -16,13 +16,19 @@ open class ApplicationPersistance (context: Context) : IApplicationPersistance {
     lateinit var editor: SharedPreferences.Editor
 
     val USER_DATA = "login_entity"
+    val IS_LOGIN_USER = "IS_LOGIN_USER"
+    val FBAID_DATA = "FBAID_entity"
+    val SSID_DATA = "SSID_entity"
+    val PARENRT_DATA = "PARENRT_entity"
 
     init {
         sharedPreferences = context.getSharedPreferences(Utility.SHARED_PREF, Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
     }
-    override fun saveUser(loginResponse: LoginResponse): Boolean {
-        return editor.putString(USER_DATA, Gson().toJson(loginResponse)).commit()
+    override fun saveUser(loginResponse: LoginResponse) {
+              editor.putString(IS_LOGIN_USER,"Y")
+               editor.putString(USER_DATA, Gson().toJson(loginResponse))
+               editor.commit()
     }
 
     override fun getUser(): LoginResponseEntity? {
@@ -37,18 +43,71 @@ open class ApplicationPersistance (context: Context) : IApplicationPersistance {
     }
 
 
-
+    fun isLoginUser() : String
+    {
+      return sharedPreferences.getString(IS_LOGIN_USER,"N").toString()
+    }
 
     override fun getFBAID(): Int {
-        if (getUser() != null) return getUser()!!.FBAId.toInt() else return 0
+        when (isLoginUser()){
+
+            "Y" ->{
+                if (getUser() != null) return getUser()!!.FBAId.toInt() else return 0
+             }
+            "N" ->{
+
+            return sharedPreferences.getString(FBAID_DATA,"0")!!.toInt()
+            }
+        }
+
+        return 0
+
     }
 
 
     override fun getSSID(): String {
-        if (getUser() != null) return getUser()!!.ssid else return "0"
+
+
+        when (isLoginUser()){
+
+            "Y" ->{
+                if (getUser() != null) return getUser()!!.ssid else return "0"
+            }
+            "N" ->{
+
+                return sharedPreferences.getString(SSID_DATA,"0")!!.toString()
+            }
+        }
+
+        return "0"
     }
 
+
     fun getParentID(): String {
-        if (getUser() != null) return getUser()?.parentid ?: "" else return ""
+
+
+        when (isLoginUser()){
+
+            "Y" ->{
+                if (getUser() != null) return getUser()?.parentid ?: "" else return ""
+            }
+            "N" ->{
+
+                return sharedPreferences.getString(SSID_DATA,"0")!!.toString()
+            }
+        }
+
+        return "0"
     }
+
+    override fun setFBAAndSSID(fbaId: String,ssId: String,parentID: String ) {
+        editor.putString(IS_LOGIN_USER,"N")
+        editor.putString(FBAID_DATA,fbaId)
+        editor.putString(SSID_DATA,ssId)
+        editor.putString(PARENRT_DATA,parentID)
+        editor.commit()
+    }
+
+
+
 }

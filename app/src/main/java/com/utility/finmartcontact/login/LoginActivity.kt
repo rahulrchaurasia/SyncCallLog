@@ -9,8 +9,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.utility.finmartcontact.*
+import com.utility.finmartcontact.core.controller.facade.ApplicationPersistance
 import com.utility.finmartcontact.core.controller.login.LoginController
 import com.utility.finmartcontact.core.requestbuilder.LoginRequestBuilder
 import com.utility.finmartcontact.core.requestentity.LoginRequestEntity
@@ -41,6 +43,29 @@ class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
         btnSignIn.setOnClickListener(this)
         setupPermissions()
+
+        if(intent.getStringExtra("fbaid") != null){
+
+           if(intent.hasExtra("fbaid") && intent.hasExtra("ssid") && intent.hasExtra("parentid")) {
+                val fbaid = intent.getStringExtra("fbaid")
+               val ssid=intent.getStringExtra("ssid")
+               val parentid=intent.getStringExtra("parentid")
+
+
+               //endregion
+               if(fbaid != null && ssid != null && parentid != null){
+                   ApplicationPersistance(this@LoginActivity).setFBAAndSSID(fbaid,ssid,parentid)
+                   val intent = Intent(this, HomeActivity::class.java)
+                   startActivity(intent)
+                   this.finish()
+               }
+
+
+
+
+            }
+
+        }
 
     }
 

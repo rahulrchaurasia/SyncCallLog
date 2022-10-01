@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SyncCallLog.iml" filepath="$PROJECT_DIR$/.idea/modules/SyncCallLog.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.unitTest.iml" />
     </modules>
   </component>
 </project>
