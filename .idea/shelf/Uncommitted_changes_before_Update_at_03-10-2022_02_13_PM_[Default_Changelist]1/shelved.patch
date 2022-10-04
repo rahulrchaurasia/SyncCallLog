@@ -1,0 +1,552 @@
+Index: .idea/runConfigurations.xml
+===================================================================
+diff --git a/.idea/runConfigurations.xml b/.idea/runConfigurations.xml
+deleted file mode 100644
+--- a/.idea/runConfigurations.xml	
++++ /dev/null	
+@@ -1,12 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="RunConfigurationProducerService">
+-    <option name="ignoredProducers">
+-      <set>
+-        <option value="org.jetbrains.plugins.gradle.execution.test.runner.AllInPackageGradleConfigurationProducer" />
+-        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer" />
+-        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestMethodGradleConfigurationProducer" />
+-      </set>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/modules/app/FinmartSyncContact.app.iml
+===================================================================
+diff --git a/.idea/modules/app/FinmartSyncContact.app.iml b/.idea/modules/app/FinmartSyncContact.app.iml
+deleted file mode 100644
+--- a/.idea/modules/app/FinmartSyncContact.app.iml	
++++ /dev/null	
+@@ -1,136 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$/../../../app" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="FinmartSyncContact" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+-  <component name="FacetManager">
+-    <facet type="android-gradle" name="Android-Gradle">
+-      <configuration>
+-        <option name="GRADLE_PROJECT_PATH" value=":app" />
+-        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="3.4.2" />
+-        <option name="LAST_KNOWN_AGP_VERSION" value="3.4.2" />
+-      </configuration>
+-    </facet>
+-    <facet type="android" name="Android">
+-      <configuration>
+-        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+-        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
+-        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+-        <afterSyncTasks>
+-          <task>generateDebugSources</task>
+-        </afterSyncTasks>
+-        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+-        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
+-        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/main/res;file://$MODULE_DIR$/../../../app/src/debug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/debug" />
+-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/androidTest/res;file://$MODULE_DIR$/../../../app/src/androidTestDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/androidTest/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/androidTest/debug" />
+-        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+-      </configuration>
+-    </facet>
+-    <facet type="kotlin-language" name="Kotlin">
+-      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false">
+-        <compilerSettings />
+-        <compilerArguments>
+-          <option name="destination" value="$MODULE_DIR$/../../../app/build/tmp/kotlin-classes/debug" />
+-          <option name="classpath" value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.21/d207ce2c9bcf17dc8e51bab4dbfdac4d013e7138/kotlin-stdlib-jdk7-1.3.21.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.21/4bcc2012b84840e19e1e28074284cac908be0295/kotlin-stdlib-1.3.21.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.21/f30e4a9897913e53d778f564110bafa1fef46643/kotlin-stdlib-common-1.3.21.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/9ba39ff91845b76385dd5bf815af855b/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/5a10519780ae94be4f5f289fadee49cc/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/8490d2a1036e2769e63437596469241e/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/634425432305813313b2b5903d195c58/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/5078ab54e79e8ad6d236c9bad6cd5b32/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/64e0162d326bac57e175ba8ab1c6832a/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/c99e2a2bb274017984dc517a5b0beb11/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/fb70f988751aced6d6f4cbf25eb59535/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/2047ecebcd5ba403a59f262490710f1f/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/de84970b0bab8a10b1028fd13eac9e84/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/8155dc12487727eb8d1a26b632b66082/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/1b2dac9c285011e794eb0cf7198b79a6/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/8086a3f748704de2d275ce8f5cbe5b4a/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/95d0ed69fefa5f808d3f04292b7fe6da/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/9f504cb85e8b060107cfda9e230e9eac/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/4beab065293f0ee684d2cb2ce8847376/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/d678ae4b06783d845bf3a70148bcfab7/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/89886b00633e9bc518e2394b0f2358a5/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/1cbd353c83cbfac73c91f83e23cfd8b9/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/com.android.support/collections/28.0.0/c1bcdade4d3cc2836130424a3f3e4182c666a745/collections-28.0.0.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/9726e084b3ccfcedd642184a0467c334/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/6e989b70bb94301203a09eed9af594b1/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/7addd0196413e3dc147caffd2e0219af/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/6b2effe8ae54702896213516db574451/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/3a7f5187e73af6b3bb450a1ce555ff5e/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/316ba3ed0e6f6043f074ab1b793f2844/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/c1b64177fc80a75fbf20eecdf896c558/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/1797e324b89a0b5fefcd8687b799bc38/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/6e18bde27f28c5adb6f21be7ad441a15/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/37dffa2aa113e45d413e200fe5028492/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.1.1/207a6efae6a3555e326de41f76bdadd9a239cbce/common-1.1.1.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/839af5b4e43a66a443dbfab47b61806d/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.1.1/e55b70d1f5620db124b3e85a7f4bdc7bd48d9f95/common-1.1.1.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/28.0.0/ed73f5337a002d1fd24339d5fb08c2c9d9ca60d8/support-annotations-28.0.0.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/74960fbde9b4e0b6b447949c54460f68/jars/classes.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/com.android.support.constraint/constraint-layout-solver/1.1.3/bde0667d7414c16ed62d3cfe993cff7f9d732373/constraint-layout-solver-1.1.3.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.3.0/9e09011e9767bb76b5e27c9b8223476b93b14631/converter-gson-2.3.0.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/bcacde6a8ccedcc56c127403d26b76072fe6214d/retrofit-2.3.0.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.9.1/36e71ab9e903fc4d1b4a58d80572a91d9fd60caf/logging-interceptor-3.9.1.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.9.1/84b4b7d1c4a238e7899972b7446c250691e65f1f/okhttp-3.9.1.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.4.0/40340c0748190fe897baf7bffbc1b282734294e5/okhttp-2.4.0.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar:/Users/daniyalshaikh/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar:/Users/daniyalshaikh/.gradle/caches/transforms-2/files-2.1/723f7cf1c87c173c8a984f9a194d2046/jars/classes.jar:/Users/daniyalshaikh/Library/Android/sdk/platforms/android-28/android.jar" />
+-          <option name="noStdlib" value="true" />
+-          <option name="noReflect" value="true" />
+-          <option name="moduleName" value="app_debug" />
+-          <option name="languageVersion" value="1.3" />
+-          <option name="apiVersion" value="1.3" />
+-          <option name="pluginOptions">
+-            <array>
+-              <option value="plugin:org.jetbrains.kotlin.android:experimental=false" />
+-              <option value="plugin:org.jetbrains.kotlin.android:enabled=true" />
+-              <option value="plugin:org.jetbrains.kotlin.android:defaultCacheImplementation=hashMap" />
+-            </array>
+-          </option>
+-          <option name="pluginClasspaths">
+-            <array>
+-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.21/311c0d1cbb0a194e8712edaef7b92a8f0919ca26/kotlin-android-extensions-1.3.21.jar" />
+-            </array>
+-          </option>
+-          <option name="errors">
+-            <ArgumentParseErrors />
+-          </option>
+-        </compilerArguments>
+-      </configuration>
+-    </facet>
+-  </component>
+-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
+-    <output url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" />
+-    <output-test url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes" />
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$/../../../app">
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/java" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/test/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/apt/debug" isTestSource="false" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/res" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/resValues/debug" type="java-resource" />
+-      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/assets" type="java-resource" />
+-      <excludeFolder url="file://$MODULE_DIR$/../../../app/.gradle" />
+-      <excludeFolder url="file://$MODULE_DIR$/../../../app/build" />
+-    </content>
+-    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.21" level="project" />
+-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.21" level="project" />
+-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.21" level="project" />
+-    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:collections:28.0.0" level="project" />
+-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.1.1" level="project" />
+-    <orderEntry type="library" name="Gradle: android.arch.core:common:1.1.1" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:28.0.0" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.1.3" level="project" />
+-    <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.3.0" level="project" />
+-    <orderEntry type="library" name="Gradle: com.squareup.retrofit2:retrofit:2.3.0" level="project" />
+-    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:logging-interceptor:3.9.1" level="project" />
+-    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.9.1" level="project" />
+-    <orderEntry type="library" name="Gradle: com.squareup.okhttp:okhttp:2.4.0" level="project" />
+-    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.13.0" level="project" />
+-    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.7" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:design:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:support-fragment:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:transition:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:loader:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:viewpager:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:coordinatorlayout:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:drawerlayout:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:slidingpanelayout:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:customview:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:swiperefreshlayout:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:asynclayoutinflater:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:support-compat:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:versionedparcelable:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:cursoradapter:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:cardview-v7:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime:1.1.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:documentfile:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:localbroadcastmanager:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:print:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:viewmodel:1.1.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support:interpolator:28.0.0@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:livedata:1.1.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:livedata-core:1.1.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: android.arch.core:runtime:1.1.1@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout:1.1.3@aar" level="project" />
+-    <orderEntry type="library" name="Gradle: com.github.tamir7.contacts:contacts:1.1.7@aar" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-integration:1.3" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-library:1.3" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: net.sf.kxml:kxml2:2.3.0" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: com.squareup:javawriter:2.1.1" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: javax.inject:javax.inject:1" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.findbugs:jsr305:2.0.1" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-core:3.0.2@aar" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test:runner:1.0.2@aar" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test:monitor:1.0.2@aar" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-idling-resource:3.0.2@aar" level="project" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: .idea/FinmartSyncContact.iml
+===================================================================
+diff --git a/.idea/FinmartSyncContact.iml b/.idea/FinmartSyncContact.iml
+deleted file mode 100644
+--- a/.idea/FinmartSyncContact.iml	
++++ /dev/null	
+@@ -1,20 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module external.linked.project.id="FinmartSyncContact" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+-  <component name="FacetManager">
+-    <facet type="java-gradle" name="Java-Gradle">
+-      <configuration>
+-        <option name="BUILD_FOLDER_PATH" value="$MODULE_DIR$/build" />
+-        <option name="BUILDABLE" value="false" />
+-      </configuration>
+-    </facet>
+-  </component>
+-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.gradle" />
+-      <excludeFolder url="file://$MODULE_DIR$/build" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: .idea/modules/app/FinmartSyncContact_New.app.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules/app/FinmartSyncContact_New.app.iml b/.idea/modules/app/FinmartSyncContact_New.app.iml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/modules/app/FinmartSyncContact_New.app.iml	
+@@ -0,0 +1,69 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$/../../../app" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="FinmartSyncContact_New" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="android-gradle" name="Android-Gradle">
++      <configuration>
++        <option name="GRADLE_PROJECT_PATH" value=":app" />
++        <option name="LAST_SUCCESSFUL_SYNC_AGP_VERSION" value="3.4.2" />
++        <option name="LAST_KNOWN_AGP_VERSION" value="3.4.2" />
++      </configuration>
++    </facet>
++    <facet type="android" name="Android">
++      <configuration>
++        <option name="SELECTED_BUILD_VARIANT" value="debug" />
++        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
++        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
++        <afterSyncTasks>
++          <task>generateDebugSources</task>
++        </afterSyncTasks>
++        <option name="ALLOW_USER_CONFIGURATION" value="false" />
++        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
++        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
++        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/main/res;file://$MODULE_DIR$/../../../app/src/debug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/debug" />
++        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/androidTest/res;file://$MODULE_DIR$/../../../app/src/androidTestDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/androidTest/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/androidTest/debug" />
++        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
++      </configuration>
++    </facet>
++    <facet type="kotlin-language" name="Kotlin">
++      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false">
++        <compilerSettings />
++        <compilerArguments>
++          <option name="destination" value="$MODULE_DIR$/../../../app/build/tmp/kotlin-classes/debug" />
++          <option name="classpath" value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.21/d207ce2c9bcf17dc8e51bab4dbfdac4d013e7138/kotlin-stdlib-jdk7-1.3.21.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.21/4bcc2012b84840e19e1e28074284cac908be0295/kotlin-stdlib-1.3.21.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.21/f30e4a9897913e53d778f564110bafa1fef46643/kotlin-stdlib-common-1.3.21.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/baa149050f9ca18aa5e13f72a9232f86/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/0ca702353bce482131e3e04df09acd64/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/0ee3868f15a7745014c3c4be3d919da3/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/e6d234ac13f687ad52e4efa18f6ef52b/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/afb281df9e38dc1f30e26ebd76745788/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/06243696d80457132ffb354d26942a4f/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/c779db2ff2a3043abf5b4eea3524af23/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/ab1b6ee81125862a411e3306d36a97e9/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/74a3cda5426f1c45a867a1a312f6f8d8/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/d090bc51f6e3656b649926c756c3bcc0/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/c67651334c6cddf93ec7a237ec3a90e0/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/54dc756e7816d888ed082f9ce67d3b07/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/a649c6ecb4a175fe9222331aeef31969/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/f5cb1f1b44d3e30733b9984b3d43e61f/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/2daae94ad39fd7f36484bf056fc65d7f/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/b571fbf324f609f99237bdc69f3afd5b/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/b81601b9f334e8fc6dd1e4a6f0c2ead8/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/8a5f7022c3d50ee5c2d88f9727068402/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/d64e0240f237404ffcf5348fd635107f/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/com.android.support/collections/28.0.0/c1bcdade4d3cc2836130424a3f3e4182c666a745/collections-28.0.0.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/cb27e9a6d76dd6f1313978768ef644fe/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/71806e1f6c57732341b244788b4247e8/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/b90c5d634fc7f8307162ea7c9223dba6/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/a583de469e4864a68e7d513dae0a45c6/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/6174845184c329be05578a1535e2e9d4/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/5a2d6f32fa29a1f0b6e81376442bbe87/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/9b3a08c4a7011637cb9e2ca4d1954743/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/14512f2ad6699b96d87ed89dc25bed35/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/dc7c09f92c12d1c97f444d63de5c18f0/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/9b1479aad5d359e0f5a65d6a1d614fd2/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.1.1/207a6efae6a3555e326de41f76bdadd9a239cbce/common-1.1.1.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/b015029524b5defa15d0482639d8e912/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.1.1/e55b70d1f5620db124b3e85a7f4bdc7bd48d9f95/common-1.1.1.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/28.0.0/ed73f5337a002d1fd24339d5fb08c2c9d9ca60d8/support-annotations-28.0.0.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/8cc237ebaa299ad802f480b3562590f4/jars/classes.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/com.android.support.constraint/constraint-layout-solver/1.1.3/bde0667d7414c16ed62d3cfe993cff7f9d732373/constraint-layout-solver-1.1.3.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.3.0/9e09011e9767bb76b5e27c9b8223476b93b14631/converter-gson-2.3.0.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/bcacde6a8ccedcc56c127403d26b76072fe6214d/retrofit-2.3.0.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.9.1/36e71ab9e903fc4d1b4a58d80572a91d9fd60caf/logging-interceptor-3.9.1.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.9.1/84b4b7d1c4a238e7899972b7446c250691e65f1f/okhttp-3.9.1.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.4.0/40340c0748190fe897baf7bffbc1b282734294e5/okhttp-2.4.0.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar;C:/Users/IN-RB/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar;C:/Users/IN-RB/.gradle/caches/transforms-2/files-2.1/b42c9479968644d232adb6ddab7c4930/jars/classes.jar;C:/Users/IN-RB/AppData/Local/Android/Sdk/platforms/android-28-2/android.jar" />
++          <option name="noStdlib" value="true" />
++          <option name="noReflect" value="true" />
++          <option name="moduleName" value="app_debug" />
++          <option name="jvmTarget" value="1.6" />
++          <option name="languageVersion" value="1.3" />
++          <option name="apiVersion" value="1.3" />
++          <option name="pluginOptions">
++            <array>
++              <option value="plugin:org.jetbrains.kotlin.android:experimental=false" />
++              <option value="plugin:org.jetbrains.kotlin.android:enabled=true" />
++              <option value="plugin:org.jetbrains.kotlin.android:defaultCacheImplementation=hashMap" />
++            </array>
++          </option>
++          <option name="pluginClasspaths">
++            <array>
++              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.21/311c0d1cbb0a194e8712edaef7b92a8f0919ca26/kotlin-android-extensions-1.3.21.jar" />
++            </array>
++          </option>
++          <option name="errors">
++            <ArgumentParseErrors />
++          </option>
++        </compilerArguments>
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
++    <output url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" />
++    <output-test url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes" />
++    <exclude-output />
++    <content url="file://$MODULE_DIR$/../../../app">
++      <excludeFolder url="file://$MODULE_DIR$/../../../app/.gradle" />
++      <excludeFolder url="file://$MODULE_DIR$/../../../app/build" />
++    </content>
++    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules/FinmartSyncContact_New.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules/FinmartSyncContact_New.iml b/.idea/modules/FinmartSyncContact_New.iml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/modules/FinmartSyncContact_New.iml	
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id="FinmartSyncContact_New" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="java-gradle" name="Java-Gradle">
++      <configuration>
++        <option name="BUILDABLE" value="false" />
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$/../..">
++      <excludeFolder url="file://$MODULE_DIR$/../../.gradle" />
++      <excludeFolder url="file://$MODULE_DIR$/../../build" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n        <option name=\"useQualifiedModuleNames\" value=\"true\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	
++++ b/.idea/gradle.xml	
+@@ -4,7 +4,7 @@
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+-        <option name="testRunner" value="PLATFORM" />
++        <option name="testRunner" value="GRADLE" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+         <option name="modules">
+@@ -13,8 +13,6 @@
+             <option value="$PROJECT_DIR$/app" />
+           </set>
+         </option>
+-        <option name="resolveModulePerSourceSet" value="false" />
+-        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectModuleManager\">\r\n    <modules>\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/FinmartSyncContact.iml\" filepath=\"$PROJECT_DIR$/.idea/FinmartSyncContact.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact.app.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact.app.iml\" />\r\n    </modules>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+--- a/.idea/modules.xml	
++++ b/.idea/modules.xml	
+@@ -2,8 +2,11 @@
+ <project version="4">
+   <component name="ProjectModuleManager">
+     <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/FinmartSyncContact.iml" filepath="$PROJECT_DIR$/.idea/FinmartSyncContact.iml" />
+-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact.app.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FinmartSyncContact_New.iml" filepath="$PROJECT_DIR$/.idea/modules/FinmartSyncContact_New.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.androidTest.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.main.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.unitTest.iml" />
+     </modules>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AndroidLayouts\">\r\n    <shared>\r\n      <config />\r\n    </shared>\r\n  </component>\r\n  <component name=\"AndroidLogFilters\">\r\n    <option name=\"TOOL_WINDOW_CUSTOM_FILTER\" value=\"CALL_LOG\" />\r\n    <option name=\"TOOL_WINDOW_LOG_LEVEL\" value=\"verbose\" />\r\n    <option name=\"TOOL_WINDOW_CONFIGURED_FILTER\" value=\"Show only selected application\" />\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"NONE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"097dcf6e-d3db-4fb0-b299-b0a8780bcec1\" name=\"Default Changelist\" comment=\"formal commit\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"device_and_snapshot_combo_box_target[]\" />\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <projects_view />\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Kotlin Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1cGbixOUpuvJwiAsXJXGaI1Lqtj\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"showMembers\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"DEBUGGABLE_DEVICE\" value=\"xiaomi-redmi_k20_pro-c55478d0\" />\r\n    <property name=\"DEBUGGABLE_PROCESS\" value=\"com.utility.finmartcontact\" />\r\n    <property name=\"DEBUGGER_ID\" value=\"Auto\" />\r\n    <property name=\"DeviceAndSnapshotComboBoxAction.selectedDevice\" value=\"Nexus6Pie\" />\r\n    <property name=\"DeviceAndSnapshotComboBoxAction.selectionTime\" value=\"2021-10-26T16:31:47.398Z\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"SHOW_ALL_PROCESSES\" value=\"false\" />\r\n    <property name=\"dart.analysis.tool.window.visible\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/app/src/main/res\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"org.jetbrains.plugins.github.ui.GithubSettingsConfigurable\" />\r\n    <property name=\"show.migrate.to.gradle.popup\" value=\"false\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyKotlinDeclarationDialog.RECENTS_KEY\">\r\n      <recent name=\"com.utility.finmartcontact.CallLog\" />\r\n      <recent name=\"com.utility.finmartcontact.core.model\" />\r\n    </key>\r\n    <key name=\"MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY\">\r\n      <recent name=\"com.utility.finmartcontact.home\" />\r\n      <recent name=\"com.utility.finmartcontact.login\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"com.utility.finmartcontact\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"$PROJECT_DIR$/app/src/main/res\" />\r\n      <recent name=\"$PROJECT_DIR$/app/src/main/res/layout\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration default=\"true\" type=\"AndroidJUnit\" factoryName=\"Android JUnit\">\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_DIR$\" />\r\n      <method v=\"2\">\r\n        <option name=\"Android.Gradle.BeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"app\" type=\"AndroidRunConfigurationType\" factoryName=\"Android App\" activateToolWindowBeforeRun=\"false\">\r\n      <module name=\"FinmartSyncContact.app\" />\r\n      <option name=\"DEPLOY\" value=\"true\" />\r\n      <option name=\"DEPLOY_APK_FROM_BUNDLE\" value=\"false\" />\r\n      <option name=\"DEPLOY_AS_INSTANT\" value=\"false\" />\r\n      <option name=\"ARTIFACT_NAME\" value=\"\" />\r\n      <option name=\"PM_INSTALL_OPTIONS\" value=\"\" />\r\n      <option name=\"ALL_USERS\" value=\"false\" />\r\n      <option name=\"DYNAMIC_FEATURES_DISABLED_LIST\" value=\"\" />\r\n      <option name=\"ACTIVITY_EXTRA_FLAGS\" value=\"\" />\r\n      <option name=\"MODE\" value=\"default_activity\" />\r\n      <option name=\"CLEAR_LOGCAT\" value=\"false\" />\r\n      <option name=\"SHOW_LOGCAT_AUTOMATICALLY\" value=\"false\" />\r\n      <option name=\"SKIP_NOOP_APK_INSTALLATIONS\" value=\"true\" />\r\n      <option name=\"FORCE_STOP_RUNNING_APP\" value=\"true\" />\r\n      <option name=\"TARGET_SELECTION_MODE\" value=\"DEVICE_AND_SNAPSHOT_COMBO_BOX\" />\r\n      <option name=\"SELECTED_CLOUD_MATRIX_CONFIGURATION_ID\" value=\"-1\" />\r\n      <option name=\"SELECTED_CLOUD_MATRIX_PROJECT_ID\" value=\"\" />\r\n      <option name=\"DEBUGGER_TYPE\" value=\"Auto\" />\r\n      <Auto>\r\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\r\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\r\n        <option name=\"WORKING_DIR\" value=\"\" />\r\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\r\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\r\n      </Auto>\r\n      <Hybrid>\r\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\r\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\r\n        <option name=\"WORKING_DIR\" value=\"\" />\r\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\r\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\r\n      </Hybrid>\r\n      <Java />\r\n      <Native>\r\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\r\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\r\n        <option name=\"WORKING_DIR\" value=\"\" />\r\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\r\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\r\n      </Native>\r\n      <Profilers>\r\n        <option name=\"ADVANCED_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"STARTUP_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"STARTUP_CPU_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"STARTUP_CPU_PROFILING_CONFIGURATION_NAME\" value=\"Sample Java Methods\" />\r\n        <option name=\"STARTUP_NATIVE_MEMORY_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"NATIVE_MEMORY_SAMPLE_RATE_BYTES\" value=\"2048\" />\r\n      </Profilers>\r\n      <option name=\"DEEP_LINK\" value=\"\" />\r\n      <option name=\"ACTIVITY_CLASS\" value=\"\" />\r\n      <option name=\"SEARCH_ACTIVITY_IN_GLOBAL_SCOPE\" value=\"false\" />\r\n      <option name=\"SKIP_ACTIVITY_VALIDATION\" value=\"false\" />\r\n      <method v=\"2\">\r\n        <option name=\"Android.Gradle.BeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"097dcf6e-d3db-4fb0-b299-b0a8780bcec1\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1590158007150</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1590158007150</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"formal commit\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"formal commit\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"136\" y=\"391\" key=\"#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog\" timestamp=\"1636618933265\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state x=\"136\" y=\"391\" key=\"#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.25.1440.875@0.25.1440.875\" timestamp=\"1636618933265\" />\r\n    <state x=\"483\" y=\"348\" key=\"#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages\" timestamp=\"1636618937035\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state x=\"483\" y=\"348\" key=\"#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.25.1440.875@0.25.1440.875\" timestamp=\"1636618937035\" />\r\n    <state x=\"458\" y=\"258\" key=\"#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog\" timestamp=\"1636619003145\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state x=\"458\" y=\"258\" key=\"#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.25.1440.875@0.25.1440.875\" timestamp=\"1636619003145\" />\r\n    <state x=\"723\" y=\"228\" width=\"562\" height=\"574\" key=\"#xdebugger.evaluate\" timestamp=\"1635325859337\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state x=\"723\" y=\"228\" width=\"562\" height=\"574\" key=\"#xdebugger.evaluate/0.25.1440.875@0.25.1440.875\" timestamp=\"1635325859337\" />\r\n    <state x=\"489\" y=\"213\" key=\"AndroidProcessChooserDialog\" timestamp=\"1636623547462\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state x=\"489\" y=\"213\" key=\"AndroidProcessChooserDialog/0.25.1440.875@0.25.1440.875\" timestamp=\"1636623547462\" />\r\n    <state width=\"1398\" height=\"249\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1636623748266\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state width=\"1398\" height=\"249\" key=\"GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875\" timestamp=\"1636623748266\" />\r\n    <state width=\"1398\" height=\"249\" key=\"GridCell.Tab.0.center\" timestamp=\"1636623748265\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state width=\"1398\" height=\"249\" key=\"GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875\" timestamp=\"1636623748265\" />\r\n    <state width=\"1398\" height=\"249\" key=\"GridCell.Tab.0.left\" timestamp=\"1636623748265\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state width=\"1398\" height=\"249\" key=\"GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875\" timestamp=\"1636623748265\" />\r\n    <state width=\"1398\" height=\"249\" key=\"GridCell.Tab.0.right\" timestamp=\"1636623748266\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state width=\"1398\" height=\"249\" key=\"GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875\" timestamp=\"1636623748266\" />\r\n    <state x=\"221\" y=\"98\" key=\"SettingsEditor\" timestamp=\"1636624154398\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state x=\"221\" y=\"98\" key=\"SettingsEditor/0.25.1440.875@0.25.1440.875\" timestamp=\"1636624154398\" />\r\n    <state x=\"385\" y=\"214\" width=\"670\" height=\"676\" key=\"search.everywhere.popup\" timestamp=\"1636623098746\">\r\n      <screen x=\"0\" y=\"25\" width=\"1440\" height=\"875\" />\r\n    </state>\r\n    <state x=\"385\" y=\"214\" width=\"670\" height=\"676\" key=\"search.everywhere.popup/0.25.1440.875@0.25.1440.875\" timestamp=\"1636623098746\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"kotlin-line\">\r\n          <url>file://$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/BaseActivity.kt</url>\r\n          <line>122</line>\r\n          <option name=\"timeStamp\" value=\"15\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"kotlin-line\">\r\n          <url>file://$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/BaseActivity.kt</url>\r\n          <line>69</line>\r\n          <option name=\"timeStamp\" value=\"16\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"kotlin-line\">\r\n          <url>file://$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/home/HomeActivity.kt</url>\r\n          <line>215</line>\r\n          <option name=\"timeStamp\" value=\"19\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"kotlin-line\">\r\n          <url>file://$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/home/HomeActivity.kt</url>\r\n          <line>231</line>\r\n          <option name=\"timeStamp\" value=\"20\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"kotlin-line\">\r\n          <url>file://$PROJECT_DIR$/app/src/main/java/com/utility/finmartcontact/home/HomeActivity.kt</url>\r\n          <line>238</line>\r\n          <option name=\"timeStamp\" value=\"21\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -14,13 +14,71 @@
+     <option name="autoReloadType" value="NONE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="097dcf6e-d3db-4fb0-b299-b0a8780bcec1" name="Default Changelist" comment="formal commit" />
++    <list default="true" id="097dcf6e-d3db-4fb0-b299-b0a8780bcec1" name="Default Changelist" comment="formal commit">
++      <change afterPath="$PROJECT_DIR$/.idea/modules/FinmartSyncContact_New.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/FinmartSyncContact.iml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_design_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_design_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_transition_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_transition_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_tamir7_contacts_contacts_1_1_7_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_tamir7_contacts_contacts_1_1_7_aar.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact.app.iml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
++  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\IN-RB\.android\avd\Pixel_3a_XL_API_25.avd]" />
+   <component name="ExternalProjectsData">
+     <projectState path="$PROJECT_DIR$">
+       <ProjectState />
+@@ -58,8 +116,10 @@
+     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-10-26T16:31:47.398Z" />
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
++    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="SHOW_ALL_PROCESSES" value="false" />
++    <property name="cidr.known.project.marker" value="true" />
+     <property name="dart.analysis.tool.window.visible" value="false" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res" />
+     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+@@ -90,21 +150,21 @@
+         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+-      <module name="FinmartSyncContact.app" />
++    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
++      <module name="FinmartSyncContact_New.app" />
+       <option name="DEPLOY" value="true" />
+       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+       <option name="DEPLOY_AS_INSTANT" value="false" />
+       <option name="ARTIFACT_NAME" value="" />
+       <option name="PM_INSTALL_OPTIONS" value="" />
+       <option name="ALL_USERS" value="false" />
++      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+       <option name="MODE" value="default_activity" />
+       <option name="CLEAR_LOGCAT" value="false" />
+       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
++      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+@@ -148,6 +208,7 @@
+       </method>
+     </configuration>
+   </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="SvnConfiguration">
+     <configuration />
+   </component>
+@@ -214,6 +275,10 @@
+       <screen x="0" y="25" width="1440" height="875" />
+     </state>
+     <state width="1398" height="249" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1636623748266" />
++    <state x="263" y="126" key="IDE.errors.dialog" timestamp="1638256701167">
++      <screen x="0" y="0" width="1366" height="768" />
++    </state>
++    <state x="263" y="126" key="IDE.errors.dialog/0.0.1366.768@0.0.1366.768" timestamp="1638256701167" />
+     <state x="221" y="98" key="SettingsEditor" timestamp="1636624154398">
+       <screen x="0" y="25" width="1440" height="875" />
+     </state>
+Index: .idea/libraries/Gradle__com_github_tamir7_contacts_contacts_1_1_7_aar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: com.github.tamir7.contacts:contacts:1.1.7@aar\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/723f7cf1c87c173c8a984f9a194d2046/jars/classes.jar!/\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/723f7cf1c87c173c8a984f9a194d2046/res\" />\r\n      <root url=\"file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/723f7cf1c87c173c8a984f9a194d2046/AndroidManifest.xml\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.tamir7.contacts/contacts/1.1.7/f6f54872c9c2457193985d259e058a2c5ea323b/contacts-1.1.7-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__com_github_tamir7_contacts_contacts_1_1_7_aar.xml b/.idea/libraries/Gradle__com_github_tamir7_contacts_contacts_1_1_7_aar.xml
+--- a/.idea/libraries/Gradle__com_github_tamir7_contacts_contacts_1_1_7_aar.xml	
++++ b/.idea/libraries/Gradle__com_github_tamir7_contacts_contacts_1_1_7_aar.xml	
+@@ -4,6 +4,9 @@
+       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/723f7cf1c87c173c8a984f9a194d2046/jars/classes.jar!/" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/723f7cf1c87c173c8a984f9a194d2046/res" />
+       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/723f7cf1c87c173c8a984f9a194d2046/AndroidManifest.xml" />
++      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b42c9479968644d232adb6ddab7c4930/jars/classes.jar!/" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b42c9479968644d232adb6ddab7c4930/res" />
++      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b42c9479968644d232adb6ddab7c4930/AndroidManifest.xml" />
+     </CLASSES>
+     <JAVADOC />
+     <SOURCES>
+Index: local.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>## This file must *NOT* be checked into Version Control Systems,\r\n# as it contains information specific to your local configuration.\r\n#\r\n# Location of the SDK. This is only used by Gradle.\r\n# For customization when using a Version Control System, please read the\r\n# header note.\r\n#Fri May 22 20:03:28 IST 2020\r\nsdk.dir=/Users/daniyalshaikh/Library/Android/sdk\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/local.properties b/local.properties
+--- a/local.properties	
++++ b/local.properties	
+@@ -4,5 +4,5 @@
+ # Location of the SDK. This is only used by Gradle.
+ # For customization when using a Version Control System, please read the
+ # header note.
+-#Fri May 22 20:03:28 IST 2020
+-sdk.dir=/Users/daniyalshaikh/Library/Android/sdk
++#Tue Nov 30 12:20:46 IST 2021
++sdk.dir=C\:\\Users\\IN-RB\\AppData\\Local\\Android\\Sdk
+Index: .idea/libraries/Gradle__junit_junit_4_12.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Gradle: junit:junit:4.12\">\r\n    <CLASSES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/941a8be4506c65f0a9001c08812fb7da1e505e21/junit-4.12-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Gradle__junit_junit_4_12.xml b/.idea/libraries/Gradle__junit_junit_4_12.xml
+--- a/.idea/libraries/Gradle__junit_junit_4_12.xml	
++++ b/.idea/libraries/Gradle__junit_junit_4_12.xml	
+@@ -1,5 +1,8 @@
+ <component name="libraryTable">
+   <library name="Gradle: junit:junit:4.12">
++    <ANNOTATIONS>
++      <root url="jar://$USER_HOME$/.m2/repository/org/jetbrains/externalAnnotations/junit/junit/4.12-an1/junit-4.12-an1-annotations.zip!/" />
++    </ANNOTATIONS>
+     <CLASSES>
+       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar!/" />
+     </CLASSES>
