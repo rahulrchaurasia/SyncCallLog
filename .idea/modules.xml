@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SyncCallLog.iml" filepath="$PROJECT_DIR$/.idea/modules/SyncCallLog.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SyncCallLog.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FinmartSyncContact_New.iml" filepath="$PROJECT_DIR$/.idea/modules/FinmartSyncContact_New.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinmartSyncContact_New.app.unitTest.iml" />
     </modules>
   </component>
 </project>
