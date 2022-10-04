@@ -5,41 +5,43 @@ import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import android.util.Log
 import android.view.View
-import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.messaging.FirebaseMessaging
 import com.utility.finmartcontact.*
 import com.utility.finmartcontact.core.controller.facade.ApplicationPersistance
 import com.utility.finmartcontact.core.controller.login.LoginController
-import com.utility.finmartcontact.core.requestbuilder.LoginRequestBuilder
 import com.utility.finmartcontact.core.requestentity.LoginRequestEntity
 import com.utility.finmartcontact.core.response.LoginResponse
 import com.utility.finmartcontact.home.HomeActivity
+import com.utility.finmartcontact.utility.Constant
 import com.utility.finmartcontact.utility.NetworkUtils
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.android.synthetic.main.content_login.*
 import kotlinx.coroutines.*
-import okhttp3.internal.wait
-import retrofit2.await
 
 
 class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
     private val TAG = "Permission"
     private val READ_CONTACTS_CODE = 101
+    private lateinit var prefManager : ApplicationPersistance
 
     var perm = arrayOf(Manifest.permission.READ_CONTACTS, Manifest.permission.READ_CALL_LOG,
         Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         //  setSupportActionBar(toolbar)
+        prefManager = ApplicationPersistance(this)
+
 
         btnSignIn.setOnClickListener(this)
         setupPermissions()
@@ -66,6 +68,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
             }
 
         }
+
+
 
     }
 

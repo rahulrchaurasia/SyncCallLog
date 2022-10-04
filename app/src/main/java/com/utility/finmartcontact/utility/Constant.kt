@@ -34,5 +34,9 @@ object Constant {
     const val   NOTIFICATION_MESSAGE = "NOTIFICATION_MESSAGE"
 
 
+    const val PUSH_NOTIFY = "PUSH_NOTIFY"
+    const val PUSH_BROADCAST_ACTION = "PUSH_BROADCAST_ACTION"
+    const val TAG = "CALLLOG"
+
 
 }

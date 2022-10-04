@@ -1,6 +1,7 @@
 package com.utility.finmartcontact
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -65,6 +66,29 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
+    open fun showAlert(title : String ,msg : String,
+
+                       action: (strType: String,dialog : DialogInterface) -> Unit) {
+        val alertDialog = AlertDialog.Builder(this)
+
+        alertDialog.apply {
+            setIcon(R.mipmap.ic_launcher)
+            setTitle(title)
+            setMessage(msg)
+            setCancelable(false)
+            setPositiveButton("Yes") {dialog, whichButton ->
+
+                //dialog.dismiss()
+                action("Y",dialog)
+
+            }
+            setNegativeButton("No") { dialog, whichButton ->
+                // dialog.dismiss()
+                action("N", dialog)
+            }
+
+        }.create().show()
+    }
     open fun createFile(name: String): File? {
         val outStream: FileOutputStream? = null
         val dir: File = createDirIfNotExists()

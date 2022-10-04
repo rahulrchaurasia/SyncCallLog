@@ -12,14 +12,17 @@ import com.utility.finmartcontact.utility.Utility
  */
 open class ApplicationPersistance (context: Context) : IApplicationPersistance {
 
-    lateinit var sharedPreferences: SharedPreferences
-    lateinit var editor: SharedPreferences.Editor
+    var sharedPreferences: SharedPreferences
+    var editor: SharedPreferences.Editor
 
     val USER_DATA = "login_entity"
     val IS_LOGIN_USER = "IS_LOGIN_USER"
     val FBAID_DATA = "FBAID_entity"
     val SSID_DATA = "SSID_entity"
     val PARENRT_DATA = "PARENRT_entity"
+    val NOTIFICATION_COUNTER ="NOTIFICATION_COUNTER"
+    val  IS_DEVICE_TOKEN = "DEVICE_TOKEN"
+   val IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch"
 
     init {
         sharedPreferences = context.getSharedPreferences(Utility.SHARED_PREF, Context.MODE_PRIVATE)
@@ -108,6 +111,39 @@ open class ApplicationPersistance (context: Context) : IApplicationPersistance {
         editor.commit()
     }
 
+    open fun setToken(strToken : String){
+
+        editor.putString(IS_DEVICE_TOKEN,strToken)
+        editor.commit()
+    }
+
+    open fun getToken(): String {
+        return sharedPreferences.getString(IS_DEVICE_TOKEN, "")?: ""
+    }
+    open fun getNotificationCounter(): Int {
+        return sharedPreferences.getInt(NOTIFICATION_COUNTER, 0)
+    }
+
+    open fun setNotificationCounter(counter: Int) {
+        editor.putInt(NOTIFICATION_COUNTER, counter)
+        editor.commit()
+    }
+
+    open fun setFirstTimeLaunch(isFirstTime: Boolean) {
+        editor.putBoolean(IS_FIRST_TIME_LAUNCH, isFirstTime)
+        editor.commit()
+    }
+
+    open fun isFirstTimeLaunch(): Boolean {
+        return sharedPreferences.getBoolean(IS_FIRST_TIME_LAUNCH, true)
+    }
+
+    open fun clearAll() {
+        val strToken = getToken()
+        editor.clear().commit()
+        setToken(strToken)
+
+    }
 
 
 }
