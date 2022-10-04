@@ -64,15 +64,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         sendNotification(remoteMessage, remoteMessage.getData());
     }
 
-    @Override
-    public void onNewToken(@NonNull String token) {
-        super.onNewToken(token);
-        prefManager.setToken(token);
-        Log.d(
-                Constant.TAG,
-                "Refreshed token Firebase: " + token
-        );
-    }
+
 
     private void sendNotification(RemoteMessage remoteMessage, Map<String, String> data) {
 

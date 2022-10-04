@@ -9,11 +9,15 @@ import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.coroutineScope
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.messaging.FirebaseMessaging
 import com.utility.finmartcontact.*
 import com.utility.finmartcontact.core.controller.facade.ApplicationPersistance
 import com.utility.finmartcontact.core.controller.login.LoginController
+import com.utility.finmartcontact.core.model.TokenRequestEntity
+import com.utility.finmartcontact.core.requestentity.CallLogRequestEntity
 import com.utility.finmartcontact.core.requestentity.LoginRequestEntity
 import com.utility.finmartcontact.core.response.LoginResponse
 import com.utility.finmartcontact.home.HomeActivity
@@ -180,9 +184,50 @@ class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
         if (response is LoginResponse) {
 
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-            finish()
+
+            lifecycleScope.launch(Dispatchers.IO) {
+
+
+                val tokenRequestEntity = TokenRequestEntity(
+
+                    FBAID = applicationPersistance.getFBAID().toString(),
+                    SSID = applicationPersistance.getSSID().toString(),
+                    tokenid = applicationPersistance.getToken(),
+                    DeviceId = "",
+                    AppVersNumb = BuildConfig.VERSION_CODE.toString()
+                )
+
+                val resultResp = RetroHelper.api.insertToken(body = tokenRequestEntity )
+
+                if(resultResp.isSuccessful){
+
+                    resultResp.body()?.let { res ->
+
+                        if(res.StatusNo == 0){
+                            Log.d(TAG, "Success"+ res.MasterData[0].Message)
+
+                            val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                            startActivity(intent)
+                            finish()
+
+                        }else{
+                            Log.d(TAG, "Failure")
+                            showMessage(etPassword, Constant.ErrorMssg, "", null)
+                        }
+
+                    } ?:showMessage(etPassword, Constant.ErrorMssg, "", null)
+
+
+                }else{
+                    Log.d(TAG, "Failure")
+                    showMessage(etPassword, Constant.ErrorMssg, "", null)
+                }
+
+
+
+          }
+
+
         }
     }
 

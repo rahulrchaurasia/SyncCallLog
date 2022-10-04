@@ -1,13 +1,11 @@
 package com.utility.finmartcontact.core.requestbuilder
 
 import com.utility.finmartcontact.RetroRequestBuilder
+import com.utility.finmartcontact.core.model.TokenRequestEntity
 import com.utility.finmartcontact.core.requestentity.CallLogRequestEntity
 import com.utility.finmartcontact.core.requestentity.ContactLeadRequestEntity
 import com.utility.finmartcontact.core.requestentity.LoginRequestEntity
-import com.utility.finmartcontact.core.response.ContactLeadResponse
-import com.utility.finmartcontact.core.response.ContactLogResponse
-import com.utility.finmartcontact.core.response.LoginResponse
-import com.utility.finmartcontact.core.response.LoginResponseEntity
+import com.utility.finmartcontact.core.response.*
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -34,6 +32,10 @@ open class LoginRequestBuilder : RetroRequestBuilder() {
 
 //        @POST()
 //        fun saveContactLead(@Url url: String, @Body body : ContactLeadRequestEntity): Response<ContactLeadResponse>
+
+        @Headers("token:1234567890")
+        @POST("/api/Insertsynccontacttoken")
+        suspend fun insertToken(@Body body : TokenRequestEntity): Response<TokenResponse>
 
 
         @POST()

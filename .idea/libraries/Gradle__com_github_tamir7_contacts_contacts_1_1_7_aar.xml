@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.tamir7.contacts:contacts:1.1.7@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6623d53222d64f8f849f4a750d175210/transformed/jetified-contacts-1.1.7/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6623d53222d64f8f849f4a750d175210/transformed/jetified-contacts-1.1.7/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6623d53222d64f8f849f4a750d175210/transformed/jetified-contacts-1.1.7/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c21fffc933a24be401acfa52766f9e39/transformed/jetified-contacts-1.1.7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c21fffc933a24be401acfa52766f9e39/transformed/jetified-contacts-1.1.7/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c21fffc933a24be401acfa52766f9e39/transformed/jetified-contacts-1.1.7/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.tamir7.contacts/contacts/1.1.7/55560bb26fab1ea1c523019eb26f84090e4f1f13/contacts-1.1.7-javadoc.jar!/" />

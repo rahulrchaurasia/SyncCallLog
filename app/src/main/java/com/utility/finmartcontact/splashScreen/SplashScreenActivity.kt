@@ -28,10 +28,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 //fbToken = result
                 // DO your thing with your firebase token
                 prefManager.setToken(result)
-                Log.d(
-                    Constant.TAG,
-                    "Refreshed token: " + result
-                )
+                Log.d(Constant.TAG, "Refreshed token: " + result)
             }
 
 

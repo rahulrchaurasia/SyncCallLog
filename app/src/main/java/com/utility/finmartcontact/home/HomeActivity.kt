@@ -127,21 +127,25 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         currentPrevDate = formatter.format(calenderPrevDate.time)
         Log.d(TAGCALL, "Prev One Month :" + currentPrevDate)
 
-      var preferences =ApplicationPersistance(this)
-        Toast.makeText(this,"FBAID is ${ApplicationPersistance(this)
-             .getFBAID()} and SSID is ${preferences.getSSID()} Parent ID is ${preferences.getParentID()}",Toast.LENGTH_LONG).show()
+//      var preferences =ApplicationPersistance(this)
+//        Toast.makeText(this,"FBAID is ${ApplicationPersistance(this)
+//             .getFBAID()} and SSID is ${preferences.getSSID()} Parent ID is ${preferences.getParentID()}",Toast.LENGTH_LONG).show()
 
-        Log.d(TAG,"FBAID is ${ApplicationPersistance(this).getFBAID()} and SSID is ${preferences.getSSID()} " +
-                "Parent ID is ${preferences.getParentID()} " )
-     //   endregion
+        Log.d(TAG,"FBAID is ${applicationPersistance.getFBAID()} and SSID is ${applicationPersistance.getSSID()} " +
+                "Parent ID is ${applicationPersistance.getParentID()} " )
+    //    endregion
+
+
+        getNotificationAction()
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main,menu)
         return super.onCreateOptionsMenu(menu)
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId){
@@ -180,7 +184,28 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
       //  checkIntent(intent)
     }
 
+    private fun getNotificationAction() {
 
+        // region Activity Open Using Notification
+        if (intent.extras != null) {
+
+
+            // step1: boolean verifyLogin = prefManager.getIsUserLogin();
+            // region verifyUser : when user logout and when Apps in background
+            if (applicationPersistance!!.getFBAID() == 0) {
+
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+                finish()
+            }
+
+
+            //endregion
+        }
+
+        //endregion
+    }
     //region Event
     override fun onClick(view: View?) {
         when (view?.id) {

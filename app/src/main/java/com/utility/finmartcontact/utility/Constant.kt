@@ -38,5 +38,6 @@ object Constant {
     const val PUSH_BROADCAST_ACTION = "PUSH_BROADCAST_ACTION"
     const val TAG = "CALLLOG"
 
+    const val ErrorMssg = "Something went wrong.Please try again!!"
 
 }
