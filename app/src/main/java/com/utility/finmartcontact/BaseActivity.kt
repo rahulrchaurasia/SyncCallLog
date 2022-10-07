@@ -72,7 +72,7 @@ open class BaseActivity : AppCompatActivity() {
         val alertDialog = AlertDialog.Builder(this)
 
         alertDialog.apply {
-            setIcon(R.mipmap.ic_launcher)
+            setIcon(R.mipmap.ic_synccontact)
             setTitle(title)
             setMessage(msg)
             setCancelable(false)

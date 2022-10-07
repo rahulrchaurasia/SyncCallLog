@@ -52,55 +52,57 @@ open class ApplicationPersistance (context: Context) : IApplicationPersistance {
     }
 
     override fun getFBAID(): Int {
-        when (isLoginUser()){
 
-            "Y" ->{
-                if (getUser() != null) return getUser()!!.FBAId.toInt() else return 0
-             }
-            "N" ->{
-
-            return sharedPreferences.getString(FBAID_DATA,"0")!!.toInt()
-            }
-        }
-
-        return 0
+        if (getUser() != null) return getUser()!!.FBAId.toInt() else return 0
+//        when (isLoginUser()){
+//
+//            "Y" ->{
+//                if (getUser() != null) return getUser()!!.FBAId.toInt() else return 0
+//             }
+//            "N" ->{
+//
+//            return sharedPreferences.getString(FBAID_DATA,"0")!!.toInt()
+//            }
+//        }
+//
+//        return 0
 
     }
 
 
     override fun getSSID(): String {
 
+        if (getUser() != null) return getUser()!!.ssid else return "0"
+//        when (isLoginUser()){
+//
+//            "Y" ->{
+//                if (getUser() != null) return getUser()!!.ssid else return "0"
+//            }
+//            "N" ->{
+//
+//                return sharedPreferences.getString(SSID_DATA,"0")!!.toString()
+//            }
+//        }
 
-        when (isLoginUser()){
-
-            "Y" ->{
-                if (getUser() != null) return getUser()!!.ssid else return "0"
-            }
-            "N" ->{
-
-                return sharedPreferences.getString(SSID_DATA,"0")!!.toString()
-            }
-        }
-
-        return "0"
+      //  return "0"
     }
 
 
     fun getParentID(): String {
 
+        if (getUser() != null) return getUser()?.parentid ?: "" else return ""
+//        when (isLoginUser()){
+//
+//            "Y" ->{
+//                if (getUser() != null) return getUser()?.parentid ?: "" else return ""
+//            }
+//            "N" ->{
+//
+//                return sharedPreferences.getString(SSID_DATA,"0")!!.toString()
+//            }
+//        }
 
-        when (isLoginUser()){
-
-            "Y" ->{
-                if (getUser() != null) return getUser()?.parentid ?: "" else return ""
-            }
-            "N" ->{
-
-                return sharedPreferences.getString(SSID_DATA,"0")!!.toString()
-            }
-        }
-
-        return "0"
+      //  return "0"
     }
 
     override fun setFBAAndSSID(fbaId: String,ssId: String,parentID: String ) {

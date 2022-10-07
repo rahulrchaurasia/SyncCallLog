@@ -10,5 +10,7 @@ data class ContactLeadRequestEntity (
     var ssid : String,
     val sub_fba_id: String,
     var contactlist: List<ContactlistEntity>? = null,
+    var batchid: String,
     var raw_data: String
+
 )

@@ -5,12 +5,14 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.database.Cursor
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
+import android.os.Parcelable
 import android.provider.CallLog
 import android.provider.ContactsContract
 import android.provider.Settings
@@ -33,10 +35,10 @@ import com.utility.finmartcontact.APIResponse
 import com.utility.finmartcontact.BaseActivity
 import com.utility.finmartcontact.IResponseSubcriber
 import com.utility.finmartcontact.R
-import com.utility.finmartcontact.core.controller.facade.ApplicationPersistance
 import com.utility.finmartcontact.core.controller.login.LoginController
 import com.utility.finmartcontact.core.model.CallLogEntity
 import com.utility.finmartcontact.core.model.ContactlistEntity
+import com.utility.finmartcontact.core.model.NotifyEntity
 import com.utility.finmartcontact.core.requestentity.CallLogRequestEntity
 import com.utility.finmartcontact.core.requestentity.ContactLeadRequestEntity
 import com.utility.finmartcontact.core.response.ContactLeadResponse
@@ -47,6 +49,7 @@ import com.utility.finmartcontact.login.LoginActivity
 import com.utility.finmartcontact.utility.Constant
 import com.utility.finmartcontact.utility.NetworkUtils
 import com.utility.finmartcontact.utility.Utility
+import com.utility.finmartcontact.webview.CommonWebViewActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_home.*
 import java.io.FileOutputStream
@@ -99,7 +102,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         "android.permission.READ_CONTACTS",
         "android.permission.READ_CALL_LOG"
     )
-
+    lateinit var pinfo: PackageInfo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -127,14 +130,21 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         currentPrevDate = formatter.format(calenderPrevDate.time)
         Log.d(TAGCALL, "Prev One Month :" + currentPrevDate)
 
-//      var preferences =ApplicationPersistance(this)
-//        Toast.makeText(this,"FBAID is ${ApplicationPersistance(this)
-//             .getFBAID()} and SSID is ${preferences.getSSID()} Parent ID is ${preferences.getParentID()}",Toast.LENGTH_LONG).show()
 
         Log.d(TAG,"FBAID is ${applicationPersistance.getFBAID()} and SSID is ${applicationPersistance.getSSID()} " +
                 "Parent ID is ${applicationPersistance.getParentID()} " )
     //    endregion
 
+
+        // getPackage Info
+        try {
+            pinfo = this.getPackageManager().getPackageInfo(this.getPackageName(), 0)
+
+
+
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
 
         getNotificationAction()
 
@@ -186,18 +196,27 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
     private fun getNotificationAction() {
 
+        if (applicationPersistance!!.getFBAID() == 0) {
+
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+            finish()
+        }
         // region Activity Open Using Notification
-        if (intent.extras != null) {
+       else if (intent.extras != null) {
 
 
             // step1: boolean verifyLogin = prefManager.getIsUserLogin();
             // region verifyUser : when user logout and when Apps in background
-            if (applicationPersistance!!.getFBAID() == 0) {
 
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                startActivity(intent)
-                finish()
+            if (intent.extras!!.getParcelable<Parcelable?>(Constant.PUSH_NOTIFY) != null) {
+                val notificationEntity: NotifyEntity? = intent.extras!!.getParcelable(Constant.PUSH_NOTIFY)
+
+                if (notificationEntity?.web_url != null) {
+
+                    navigateViaNotification(notificationEntity.notifyFlag, notificationEntity.web_url, notificationEntity.web_title)
+                }
             }
 
 
@@ -206,6 +225,50 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
         //endregion
     }
+
+    private fun navigateViaNotification(prdID: String, WebURL: String, Title: String) {
+
+        //   if (prdID.equals("18")) {
+        //       startActivity(new Intent(HomeActivity.this, TermSelectionActivity.class));
+        //   }
+
+
+        var WebURL = WebURL
+        if (prdID == "WB") {
+            startActivity(Intent(this@HomeActivity, CommonWebViewActivity::class.java)
+                .putExtra("URL", WebURL)
+                .putExtra("NAME", Title)
+                .putExtra("TITLE", Title))
+        } else if (prdID == "CB") {
+            Utility.loadWebViewUrlInBrowser(this@HomeActivity, WebURL)
+        }else if (prdID == "SY") {
+
+            CvSync.performClick()
+        }
+        else {
+
+            if(WebURL.trim().length ==0 || Title.trim().length == 0){
+
+                return
+            }
+
+            var ipaddress = "0.0.0.0"
+
+            //&ip_address=10.0.3.64&mac_address=10.0.3.64&app_version=2.2.0&product_id=1
+            val append = ("&ss_id=" + applicationPersistance.getSSID() + "&fba_id=" + applicationPersistance.getFBAID() + "&sub_fba_id=" +
+                    "&ip_address=" + ipaddress + "&mac_address=" + ipaddress
+                    + "&app_version=" + pinfo.versionName
+                    + "&device_id=" + Utility.getDeviceId(this@HomeActivity)
+                    + "&product_id=" + prdID
+                    + "&login_ssid=")
+            WebURL = WebURL + append
+            startActivity(Intent(this@HomeActivity, CommonWebViewActivity::class.java)
+                .putExtra("URL", WebURL)
+                .putExtra("NAME", Title)
+                .putExtra("TITLE", Title))
+        }
+    }
+
     //region Event
     override fun onClick(view: View?) {
         when (view?.id) {
@@ -685,6 +748,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
                     ssid = applicationPersistance!!.getSSID(),
                     sub_fba_id = tsub_fba_id,
                     contactlist = subcontactlist,
+                    batchid =  System.currentTimeMillis().toString(),
                     raw_data = ""
                 )
                 LoginController(this@HomeActivity).uploadContact(
@@ -994,7 +1058,12 @@ class HomeActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
     // endregion
 
 
+    // onNewIntent : use with android:launchMode="singleTop"
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
 
+         Toast.makeText(this,"OnNewIntent",Toast.LENGTH_LONG ).show()
+    }
 
     private fun setOneTimeRequestWithCoroutine() {
 

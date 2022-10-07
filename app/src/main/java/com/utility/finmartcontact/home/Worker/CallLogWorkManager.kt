@@ -311,10 +311,10 @@ class CallLogWorkManager(context: Context, workerParameters: WorkerParameters) :
         notificationBuilder = NotificationCompat.Builder(applicationContext, id)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            notificationBuilder.setSmallIcon(R.drawable.ic_notification)
+            notificationBuilder.setSmallIcon(R.drawable.ic_sync_notify)
             notificationBuilder.color = applicationContext.getColor(R.color.colorPrimary)
         } else {
-            notificationBuilder.setSmallIcon(R.drawable.ic_notification)
+            notificationBuilder.setSmallIcon(R.drawable.ic_sync_notify)
         }
 
      // .addAction(android.R.drawable.ic_delete, cancel, intent)

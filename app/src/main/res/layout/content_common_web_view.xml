@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.policyboss.policybosspro.webviews.CommonWebViewActivity"
+    tools:context=".webview.CommonWebViewActivity"
     tools:showIn="@layout/activity_common_web_view">
 
     <WebView
-        android:id="@+id/webView"
+        android:id="@+id/webView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -13,9 +13,9 @@
     <application
             android:name=".MyApplication"
             android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@mipmap/ic_synccontact"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
+            android:roundIcon="@mipmap/ic_synccontact_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
@@ -41,6 +41,13 @@
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.utility.finmartcontact.BaseActivity" />
+        </activity>
+        <activity
+                android:name=".webview.CommonWebViewActivity"
+                android:exported="true"
+                android:launchMode="standard"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustResize|stateAlwaysHidden|stateHidden">
         </activity>
         <activity
                 android:name=".login.LoginActivity"

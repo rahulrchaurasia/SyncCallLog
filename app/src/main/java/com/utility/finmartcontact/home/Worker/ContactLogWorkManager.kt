@@ -30,7 +30,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import retrofit2.await
 import retrofit2.awaitResponse
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by Rahul on 10/06/2022.
@@ -108,6 +108,8 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
 
             var contactlist = getContactList()
 
+           var batchID = "ID${tfbaid}_" + Calendar.getInstance().timeInMillis.toString()
+
             ContactCount = contactlist.size
 
             //temp 05 added : have to remove below one line
@@ -149,6 +151,7 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
                         ssid = ssid!!,
                         sub_fba_id = tsub_fba_id,
                         contactlist = subcontactlist,
+                        batchid =  batchID,
                         raw_data = Gson().toJson(getAllContactDetails)
                     )
 

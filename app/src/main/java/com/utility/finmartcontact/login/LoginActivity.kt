@@ -9,15 +9,12 @@ import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.messaging.FirebaseMessaging
 import com.utility.finmartcontact.*
 import com.utility.finmartcontact.core.controller.facade.ApplicationPersistance
 import com.utility.finmartcontact.core.controller.login.LoginController
 import com.utility.finmartcontact.core.model.TokenRequestEntity
-import com.utility.finmartcontact.core.requestentity.CallLogRequestEntity
 import com.utility.finmartcontact.core.requestentity.LoginRequestEntity
 import com.utility.finmartcontact.core.response.LoginResponse
 import com.utility.finmartcontact.home.HomeActivity
@@ -27,6 +24,10 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.android.synthetic.main.content_login.*
 import kotlinx.coroutines.*
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
@@ -50,28 +51,28 @@ class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         btnSignIn.setOnClickListener(this)
         setupPermissions()
 
-        if(intent.getStringExtra("fbaid") != null){
-
-           if(intent.hasExtra("fbaid") && intent.hasExtra("ssid") && intent.hasExtra("parentid")) {
-                val fbaid = intent.getStringExtra("fbaid")
-               val ssid=intent.getStringExtra("ssid")
-               val parentid=intent.getStringExtra("parentid")
-
-
-               //endregion
-               if(fbaid != null && ssid != null && parentid != null){
-                   ApplicationPersistance(this@LoginActivity).setFBAAndSSID(fbaid,ssid,parentid)
-                   val intent = Intent(this, HomeActivity::class.java)
-                   startActivity(intent)
-                   this.finish()
-               }
-
-
-
-
-            }
-
-        }
+//        if(intent.getStringExtra("fbaid") != null){
+//
+//           if(intent.hasExtra("fbaid") && intent.hasExtra("ssid") && intent.hasExtra("parentid")) {
+//                val fbaid = intent.getStringExtra("fbaid")
+//               val ssid=intent.getStringExtra("ssid")
+//               val parentid=intent.getStringExtra("parentid")
+//
+//
+//               //endregion
+//               if(fbaid != null && ssid != null && parentid != null){
+//                   ApplicationPersistance(this@LoginActivity).setFBAAndSSID(fbaid,ssid,parentid)
+//                   val intent = Intent(this, HomeActivity::class.java)
+//                   startActivity(intent)
+//                   this.finish()
+//               }
+//
+//
+//
+//
+//            }
+//
+//        }
 
 
 
@@ -133,6 +134,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
         when (view?.id) {
             R.id.btnSignIn -> {
 
+
+
                 hideKeyBoard(btnSignIn)
 
                 if (etEmail.text.toString().isEmpty()) {
@@ -155,19 +158,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener, IResponseSubcriber {
 
                 showLoading("Authenticating user..")
                LoginController(this).login(loginRequestEntity, this)
-
-
-//                GlobalScope.launch {
-//
-//                    val result = RetroHelper.api.login(loginRequestEntity)
-//                    if(result != null){
-//
-//                        dismissDialog()
-//                        Log.d("MYDATA", result.await().Status)
-//                    }
-//
-//
-//                }
 
 
 

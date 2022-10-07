@@ -56,6 +56,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     String WebURL, WebTitle, messageId;
     NotifyEntity notifyEntity;
     ApplicationPersistance prefManager;
+    int flag;
 
 
     @Override
@@ -129,8 +130,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.M){
+            flag =   PendingIntent.FLAG_IMMUTABLE;
+        }else{
+            flag =  0;
+        }
         PendingIntent pendingIntent = PendingIntent.getActivity(this, (int) Math.round(Math.random() * 1000), intent,
-                PendingIntent.FLAG_CANCEL_CURRENT);
+                flag);
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -154,21 +162,23 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         if (bitmap_image != null) {
             notificationBuilder.setStyle(BigPicstyle);
-            notificationBuilder.setLargeIcon(bitmap_image);
+           // notificationBuilder.setLargeIcon(bitmap_image);  // Big picture as large Icon symboll
+            notificationBuilder.setLargeIcon(  BitmapFactory.decodeResource(getResources(), R.mipmap.ic_synccontact));
+
         } else {
             notificationBuilder.setStyle(BigTextstyle);
-            notificationBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+            notificationBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_synccontact));
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            notificationBuilder.setSmallIcon(R.drawable.ic_notification);
+            notificationBuilder.setSmallIcon(R.drawable.ic_sync_notify);
             notificationBuilder.setColor(getResources().getColor(R.color.colorPrimary));
         } else {
-            notificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
+            notificationBuilder.setSmallIcon(R.mipmap.ic_synccontact);
         }
 
         notificationBuilder
-                .setColor(ContextCompat.getColor(getApplicationContext(), R.color.lightGrey))
+                .setColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))
                 .setContentTitle(NotifyData.get("title"))
                 .setContentText(NotifyData.get("body"))
                 .setAutoCancel(true)
