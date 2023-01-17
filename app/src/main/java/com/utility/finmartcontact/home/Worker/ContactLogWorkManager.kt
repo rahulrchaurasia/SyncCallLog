@@ -8,6 +8,7 @@ import android.content.Intent
 import android.database.Cursor
 import android.graphics.Color
 import android.os.Build
+import android.os.Environment
 import android.provider.ContactsContract
 import android.util.Log
 import androidx.annotation.RequiresApi
@@ -30,6 +31,13 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import retrofit2.await
 import retrofit2.awaitResponse
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.StandardOpenOption
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 /**
@@ -107,6 +115,13 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
             var url = BuildConfig.SYNC_CONTACT_URL + "/contact_entry"
 
             var contactlist = getContactList()
+
+            // region Temp log File { Not working}
+//            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+//                getJsonInFile(""+ Gson().toJson(contactlist).toString())
+//                // getJsonInFile("" + "hello first line 1")
+//            }
+            //endregion
 
            var batchID = "ID${tfbaid}_" + Calendar.getInstance().timeInMillis.toString()
 
@@ -330,6 +345,56 @@ class ContactLogWorkManager(context: Context, workerParameters: WorkerParameters
 
 
     }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+
+    fun getJsonInFile(strBody: String) {
+
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-ddHH:mm:ss")
+        val formatted = LocalDateTime.now().format(formatter)
+        var textFile = createFile("ContactLog" +formatted)
+
+        var os: FileOutputStream? = null
+        try {
+            // os = FileOutputStream(textFile)
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Files.write(
+                    textFile!!.toPath(),
+                    strBody.toByteArray(),
+                    StandardOpenOption.CREATE_NEW
+                )
+                Files.write(textFile!!.toPath(), strBody.toByteArray(), StandardOpenOption.APPEND)
+            }
+
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+    }
+
+    open fun createFile(name: String): File? {
+        val outStream: FileOutputStream? = null
+        val dir: File = createDirIfNotExists()
+        var fileName = "$name.doc"
+        fileName = fileName.replace("\\s+".toRegex(), "")
+        return File(dir, fileName)
+    }
+
+    open fun createDirIfNotExists(): File {
+       // val file = File(Environment.getExternalStorageDirectory(), "/SynContact")
+        val file = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+            "SynContact"
+        )
+        if (!file.exists()) {
+            if (!file.mkdirs()) {
+                Log.e("TravellerLog :: ", "Problem creating Image folder")
+            }
+        }
+        return file
+    }
+
 
     //region Creates notifications for service
     private fun createForegroundInfo(
